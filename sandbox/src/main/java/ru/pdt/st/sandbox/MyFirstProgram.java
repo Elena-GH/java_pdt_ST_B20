@@ -13,13 +13,22 @@ public class MyFirstProgram {
     Rectangle r = new Rectangle(4, 6);
     System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + r.area());
 
-    Segment d = new Segment(0, 0, 10.5, 10.1);
-    System.out.println("Расстояние между двумя точками с координатами (" + d.x1 + "; " + d.y1 + ") и ("
-            + d.x2 + "; " + d.y2 + ") = " + d.calculateLengthSegment());
+    Point p1 = new Point(5, 5);
+    Point p2 = new Point(5,10);
+    System.out.println("Расстояние между двумя точками с координатами A(" + p1.x + "; " + p1.y
+            + ") и B(" + p2.x + "; " + p2.y + ") = " + distance(p1, p2));
+
+    Segment d = new Segment(5, 5, 5, 10);
+    System.out.println("Расстояние между двумя точками с координатами C(" + d.x1 + "; " + d.y1
+            + ") и D(" + d.x2 + "; " + d.y2 + ") = " + d.calculateLengthSegment());
   }
 
   public static void hello(String somebody) {
     System.out.println("Hello, " + somebody + "!");
+  }
+
+  public static double distance(Point p1, Point p2){
+    return Math.sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
   }
 
 }
