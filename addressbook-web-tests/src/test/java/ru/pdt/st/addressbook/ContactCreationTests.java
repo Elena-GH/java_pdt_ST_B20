@@ -27,7 +27,7 @@ public class ContactCreationTests {
   @Test
   public void testContactCreation() throws Exception {
     gotoContactPage();
-    fillContactForm();
+    fillContactForm("Contact_First_Name", "Contact_Last_Name", "+7 (123) 123-45-67", "contact_mail@gmail.com");
     submitContactCreation();
     returnHomePage();
     logout();
@@ -37,19 +37,19 @@ public class ContactCreationTests {
     wd.findElement(By.linkText("add new")).click();
   }
 
-  private void fillContactForm() {
+  private void fillContactForm(String firstName, String lastName, String mobile, String email) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys("Contact_First_Name");
+    wd.findElement(By.name("firstname")).sendKeys(firstName);
     wd.findElement(By.name("lastname")).click();
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys("Contact_Last_Name");
+    wd.findElement(By.name("lastname")).sendKeys(lastName);
     wd.findElement(By.name("mobile")).click();
     wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys("+7 (123) 123-45-67");
+    wd.findElement(By.name("mobile")).sendKeys(mobile);
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys("contact_mail@gmail.com");
+    wd.findElement(By.name("email")).sendKeys(email);
   }
 
   private void submitContactCreation() {
