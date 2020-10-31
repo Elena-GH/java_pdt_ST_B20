@@ -1,4 +1,4 @@
-package ru.pdt.st.addressbook;
+package ru.pdt.st.addressbook.tests;
 
 import org.testng.annotations.*;
 
