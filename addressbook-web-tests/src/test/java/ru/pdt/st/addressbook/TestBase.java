@@ -56,6 +56,13 @@ public class TestBase {
   protected void returnGroupPage() {
     wd.findElement(By.linkText("group page")).click();
   }
+  protected void deleteSelectedGroups() {
+    wd.findElement(By.xpath("(//input[@name='delete'])[2]")).click();
+  }
+
+  protected void selectGroup() {
+    wd.findElement(By.name("selected[]")).click();
+  }
 
   protected void logout() {
     wd.findElement(By.linkText("Logout")).click();
@@ -66,7 +73,7 @@ public class TestBase {
     wd.quit();
   }
 
-  private boolean isElementPresent(By by) {
+  public boolean isElementPresent(By by) {
     try {
       wd.findElement(by);
       return true;
@@ -75,7 +82,7 @@ public class TestBase {
     }
   }
 
-  private boolean isAlertPresent() {
+  public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
       return true;
@@ -83,4 +90,5 @@ public class TestBase {
       return false;
     }
   }
+
 }
