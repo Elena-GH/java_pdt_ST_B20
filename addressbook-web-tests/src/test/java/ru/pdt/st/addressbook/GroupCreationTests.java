@@ -32,7 +32,7 @@ public class GroupCreationTests {
     fillGroupForm(new GroupData("Group_Name", "Group_Header", "Group_Footer"));
     submitGroupCreation();
     returnGroupPage();
-    // logout();
+    logout();
   }
 
   private void gotoGroupPage() {

@@ -26,7 +26,18 @@ public class ContactCreationTests {
 
   @Test
   public void testContactCreation() throws Exception {
+    gotoContactPage();
+    fillContactForm();
+    submitContactCreation();
+    returnHomePage();
+    logout();
+  }
+
+  private void gotoContactPage() {
     wd.findElement(By.linkText("add new")).click();
+  }
+
+  private void fillContactForm() {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
     wd.findElement(By.name("firstname")).sendKeys("Contact_First_Name");
@@ -39,8 +50,17 @@ public class ContactCreationTests {
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
     wd.findElement(By.name("email")).sendKeys("contact_mail@gmail.com");
+  }
+
+  private void submitContactCreation() {
     wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+  }
+
+  private void returnHomePage() {
     wd.findElement(By.linkText("home")).click();
+  }
+
+  private void logout() {
     wd.findElement(By.linkText("Logout")).click();
   }
 
