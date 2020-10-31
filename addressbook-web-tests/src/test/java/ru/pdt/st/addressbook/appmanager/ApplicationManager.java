@@ -3,9 +3,7 @@ package ru.pdt.st.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -13,9 +11,14 @@ public class ApplicationManager {
   FirefoxDriver wd;
 
   private GroupHelper groupHelper;
+  private NavigationHelper navigationHelper;
 
   public GroupHelper getGroupHelper() {
     return groupHelper;
+  }
+
+  public NavigationHelper getNavigationHelper() {
+    return navigationHelper;
   }
 
   public void init() {
@@ -23,6 +26,7 @@ public class ApplicationManager {
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/index.php");
     groupHelper = new GroupHelper(wd);
+    navigationHelper = new NavigationHelper(wd);
     login("admin", "secret");
   }
 
@@ -32,10 +36,6 @@ public class ApplicationManager {
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys(password);
     wd.findElement(By.xpath("//input[@value='Login']")).click();
-  }
-
-  public void gotoGroupPage() {
-    wd.findElement(By.linkText("groups")).click();
   }
 
   public void logout() {
