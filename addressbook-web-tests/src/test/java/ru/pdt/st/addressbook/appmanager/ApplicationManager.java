@@ -14,6 +14,10 @@ public class ApplicationManager {
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
 
+  public SessionHelper getSessionHelper() {
+    return sessionHelper;
+  }
+
   public GroupHelper getGroupHelper() {
     return groupHelper;
   }
