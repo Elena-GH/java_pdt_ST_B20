@@ -27,8 +27,23 @@ public class GroupCreationTests {
 
   @Test
   public void testGroupCreation() throws Exception {
+    gotoGroupPage();
+    initGroupCreation();
+    fillGroupForm();
+    submitGroupCreation();
+    returnGroupPage();
+    logout();
+  }
+
+  private void gotoGroupPage() {
     wd.findElement(By.linkText("groups")).click();
+  }
+
+  private void initGroupCreation() {
     wd.findElement(By.name("new")).click();
+  }
+
+  private void fillGroupForm() {
     wd.findElement(By.name("group_name")).click();
     wd.findElement(By.name("group_name")).clear();
     wd.findElement(By.name("group_name")).sendKeys("Katalon_Record_New_Group_1");
@@ -38,8 +53,17 @@ public class GroupCreationTests {
     wd.findElement(By.name("group_footer")).click();
     wd.findElement(By.name("group_footer")).clear();
     wd.findElement(By.name("group_footer")).sendKeys("Katalon_Record_New_Group_1_Comment");
+  }
+
+  private void submitGroupCreation() {
     wd.findElement(By.name("submit")).click();
+  }
+
+  private void returnGroupPage() {
     wd.findElement(By.linkText("group page")).click();
+  }
+
+    private void logout() {
     wd.findElement(By.linkText("Logout")).click();
   }
 
