@@ -4,12 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.pdt.st.addressbook.model.GroupData;
 
-public class GroupHelper {
-
-  private FirefoxDriver wd;
+public class GroupHelper extends HelperBase {
 
   public GroupHelper( FirefoxDriver wd) {
-    this.wd = wd;
+    super(wd);
   }
 
   public void initGroupCreation() {
@@ -36,16 +34,6 @@ public class GroupHelper {
 
   public void returnGroupPage() {
     click(By.linkText("group page"));
-  }
-
-  private void click(By locator) {
-    wd.findElement(locator).click();
-  }
-
-  private void type(By locator, String text) {
-    click(locator);
-    wd.findElement(locator).clear();
-    wd.findElement(locator).sendKeys(text);
   }
 
 }
