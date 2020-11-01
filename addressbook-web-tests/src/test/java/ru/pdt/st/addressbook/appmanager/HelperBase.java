@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class HelperBase {
+
   protected FirefoxDriver wd;
 
   public HelperBase(FirefoxDriver wd) {

@@ -6,7 +6,7 @@ import ru.pdt.st.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
 
-  public GroupHelper( FirefoxDriver wd) {
+  public GroupHelper(FirefoxDriver wd) {
     super(wd);
   }
 
