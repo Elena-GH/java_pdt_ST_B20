@@ -28,6 +28,14 @@ public class GroupHelper extends HelperBase {
     click(By.name("selected[]"));
   }
 
+  public void inutGroupModification() {
+    click(By.xpath("(//input[@name='edit'])[2]"));
+  }
+
+  public void submitGroupModification() {
+    click(By.name("update"));
+  }
+
   public void deleteSelectedGroups() {
     click(By.xpath("(//input[@name='delete'])[2]"));
   }

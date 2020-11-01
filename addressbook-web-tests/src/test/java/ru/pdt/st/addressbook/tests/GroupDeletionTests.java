@@ -2,7 +2,7 @@ package ru.pdt.st.addressbook.tests;
 
 import org.testng.annotations.*;
 
-public class GroupDeletionTests extends TestBase{
+public class GroupDeletionTests extends TestBase {
 
   @Test
   public void testGroupDeletion() throws Exception {
