@@ -15,6 +15,10 @@ public class Equation {
 
     double d = b*b - 4*a*c;
 
+    if (a == 0) {
+      System.out.println("Это вырожденное квадратное уравнение");
+    }
+
     if (d > 0) {
       n = 2;
     } else if (d == 0) {
