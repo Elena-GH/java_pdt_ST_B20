@@ -9,7 +9,6 @@ public class Equation {
   private int n;
 
   public Equation (double a, double b, double c) {
-
     this.a = a;
     this.b = b;
     this.c = c;
@@ -26,4 +25,9 @@ public class Equation {
       }
     }
   }
+
+  public int rootNumber() {
+    return n;
+  }
+
 }
