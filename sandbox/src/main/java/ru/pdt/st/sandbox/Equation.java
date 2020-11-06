@@ -21,9 +21,13 @@ public class Equation {
 
     if (d > 0) {
       n = 2;
-    } else if (d == 0) {
+    }
+
+    if (d == 0) {
       n = 1;
-    } else {
+    }
+
+    if (d < 0) {
       n = 0;
     }
   }
