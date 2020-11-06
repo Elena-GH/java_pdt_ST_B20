@@ -15,16 +15,14 @@ public class Equation {
 
     double d = b*b - 4*a*c;
 
-    if (a == 0)
-      System.out.println("Это вырожденное уравнение");
-
-
     if (d > 0) {
       n = 2;
-    } else if (d == 0) {
-      n = 1;
     } else {
-      n = 0;
+      if (d == 0) {
+        n = 1;
+      } else {
+        n = 0;
+      }
     }
   }
 
