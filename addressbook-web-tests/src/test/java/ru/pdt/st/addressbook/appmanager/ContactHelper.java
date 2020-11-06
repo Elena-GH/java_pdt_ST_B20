@@ -25,14 +25,6 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("(//input[@name='submit'])[2]"));
   }
 
-  public void returnHomePage() {
-    click(By.linkText("home"));
-  }
-
-  public void confirmAction() {
-    wd.switchTo().alert().accept();
-  }
-
   public void initContactModification() {
     click(By.xpath("//img[@alt='Edit']"));
   }
@@ -49,5 +41,12 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
   }
 
+  public void confirmAction() {
+    wd.switchTo().alert().accept();
+  }
+
+  public void returnHomePage() {
+    click(By.linkText("home"));
+  }
 
 }
