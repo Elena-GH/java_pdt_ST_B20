@@ -13,7 +13,7 @@ public class Equation {
     this.b = b;
     this.c = c;
 
-    double d = b*b - 4*a*c;
+    double d = b * b - 4 * a * c;
 
     if (a == 0) {
       if (b == 0) {
@@ -35,9 +35,11 @@ public class Equation {
         n = 0;
       }
     }
-
-  public int rootNumber() {
-    return n;
   }
 
+  public int rootNumber () {
+    return n;
+  }
+  
 }
+
