@@ -12,7 +12,8 @@ public class ContactModificationTests extends TestBase {
             "New_Contact_First_Name",
             "New_Contact_Last_Name",
             "+7 (321) 123-45-67",
-            "new_contact_mail@gmail.com"));
+            "new_contact_mail@gmail.com",
+            null), false);
     app.getContactHelper().submitContactModification();
     app.getContactHelper().returnHomePage();
   }

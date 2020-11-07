@@ -12,7 +12,8 @@ public class ContactCreationTests extends TestBase {
             "Contact_First_Name",
             "Contact_Last_Name",
             "+7 (123) 123-45-67",
-            "contact_mail@gmail.com"));
+            "contact_mail@gmail.com",
+            "Group_Name"), true);
     app.getContactHelper().submitContactCreation();
     app.getContactHelper().returnHomePage();
   }

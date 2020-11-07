@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class HelperBase {
 
@@ -29,11 +28,11 @@ public class HelperBase {
     }
   }
 
-  public boolean isElementPresent(By by) {
+  public boolean isElementPresent(By locator) {
     try {
-      wd.findElement(by);
+      wd.findElement(locator);
       return true;
-    } catch (NoSuchElementException e) {
+    } catch (NoSuchElementException ex) {
       return false;
     }
   }
@@ -42,7 +41,7 @@ public class HelperBase {
     try {
       wd.switchTo().alert();
       return true;
-    } catch (NoAlertPresentException e) {
+    } catch (NoAlertPresentException ex) {
       return false;
     }
   }
