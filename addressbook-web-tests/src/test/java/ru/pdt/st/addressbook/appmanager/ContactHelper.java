@@ -55,7 +55,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void returnHomePage() {
-    click(By.linkText("home"));
+    click(By.linkText("home page"));
   }
 
 }

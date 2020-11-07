@@ -9,7 +9,7 @@ public class ContactDeletionTests extends TestBase{
     app.getContactHelper().selectContact();
     app.getContactHelper().deleteSelectedGroups();
     app.getContactHelper().confirmAction();
-    app.getContactHelper().returnHomePage();
+    app.getNavigationHelper().gotoHomePage();
   }
 
 }
