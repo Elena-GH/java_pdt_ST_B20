@@ -54,7 +54,7 @@ public class ContactHelper extends HelperBase {
     wd.switchTo().alert().accept();
   }
 
-  public void returnHomePage() {
+  public void returnToHomePage() {
     click(By.linkText("home page"));
   }
 

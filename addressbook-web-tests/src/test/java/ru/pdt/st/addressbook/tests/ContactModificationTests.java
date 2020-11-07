@@ -15,7 +15,7 @@ public class ContactModificationTests extends TestBase {
             "new_contact_mail@gmail.com",
             null), false);
     app.getContactHelper().submitContactModification();
-    app.getContactHelper().returnHomePage();
+    app.getContactHelper().returnToHomePage();
   }
 
 }

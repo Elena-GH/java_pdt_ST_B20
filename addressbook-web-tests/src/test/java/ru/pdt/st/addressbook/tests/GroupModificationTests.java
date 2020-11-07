@@ -15,7 +15,7 @@ public class GroupModificationTests extends TestBase {
             "Group_Header",
             "New_Group_Footer"));
     app.getGroupHelper().submitGroupModification();
-    app.getGroupHelper().returnGroupPage();
+    app.getGroupHelper().returnToGroupPage();
   }
 
 }
