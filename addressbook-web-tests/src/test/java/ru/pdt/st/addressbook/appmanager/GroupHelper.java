@@ -29,7 +29,7 @@ public class GroupHelper extends HelperBase {
     click(By.name("selected[]"));
   }
 
-  public void inutGroupModification() {
+  public void initGroupModification() {
     click(By.xpath("(//input[@name='edit'])[2]"));
   }
 
