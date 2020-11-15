@@ -12,7 +12,6 @@ public class ContactModificationTests extends TestBase {
   @Test
   public void testContactModification() {
     app.getNavigationHelper().gotoHomePage();
-    List<ContactData> befor = app.getContactHelper().getContactList();
     if (! app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData(
               "Contact_First_Name",
@@ -21,9 +20,10 @@ public class ContactModificationTests extends TestBase {
               "contact_mail@gmail.com",
               "Group_Name"));
     }
+    List<ContactData> befor = app.getContactHelper().getContactList();
     app.getContactHelper().initContactModification(befor.size() - 1);
     ContactData contact = new ContactData(
-            "Elena",
+            "New_Contact_First_Name",
             "New_Contact_Last_Name",
             "+7 (321) 123-45-67",
             "new_contact_mail@gmail.com",
@@ -37,7 +37,6 @@ public class ContactModificationTests extends TestBase {
     befor.remove(befor.size() - 1);
     befor.add(contact);
     // Сортировка списков до и после теста с помощью анонимной функции - Lambda
-
     Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
     befor.sort(byId);
     after.sort(byId);
