@@ -23,7 +23,7 @@ public class GroupModificationTests extends TestBase {
     app.getGroupHelper().selectGroup(befor.size() - 1);
     app.getGroupHelper().initGroupModification();
     GroupData group = new GroupData(befor.get(befor.size() - 1).getId(),
-            "Group_Name",
+            "New_Group_Name",
             "Group_Header",
             "New_Group_Footer");
     app.getGroupHelper().fillGroupForm(group);
@@ -39,6 +39,7 @@ public class GroupModificationTests extends TestBase {
     befor.sort(byId);
     after.sort(byId);
     // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
+    // При этом сравнение выполняется средствами тестовго фреймворка testng
     Assert.assertEquals(befor, after);
   }
 

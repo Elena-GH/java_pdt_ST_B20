@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.GroupData;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -14,18 +15,21 @@ public class GroupCreationTests extends TestBase {
     app.getNavigationHelper().gotoGroupPage();
     List<GroupData> befor = app.getGroupHelper().getGroupList();
     GroupData group = new GroupData(
-            "Group_Name_N",
+            "Group_Name",
             null,
             null);
     app.getGroupHelper().createGroup(group);
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), befor.size() + 1);
 
-    // Поиск максимального элемента в списке с помощью анонимной функции - Lambda
-    group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
     befor.add(group);
-    // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
-    Assert.assertEquals(new HashSet<Object>(befor), new HashSet<Object>(after));
+    // Сортировка списков до и после теста с помощью анонимной функции - Lambda
+    Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+    befor.sort(byId);
+    after.sort(byId);
+    // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
+    // При этом сравнение выполняется средствами тестовго фреймворка testng
+    Assert.assertEquals(befor, after);
   }
 
 }
