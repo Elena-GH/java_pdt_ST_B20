@@ -22,7 +22,7 @@ public class ContactModificationTests extends TestBase {
     }
     List<ContactData> befor = app.getContactHelper().getContactList();
     app.getContactHelper().initContactModification(befor.size() - 1);
-    ContactData contact = new ContactData(
+    ContactData contact = new ContactData(befor.get(befor.size() - 1).getId(),
             "New_Contact_First_Name",
             "New_Contact_Last_Name",
             "+7 (321) 123-45-67",
