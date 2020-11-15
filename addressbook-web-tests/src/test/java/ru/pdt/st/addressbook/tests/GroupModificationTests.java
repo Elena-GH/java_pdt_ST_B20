@@ -1,11 +1,10 @@
 package ru.pdt.st.addressbook.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupModificationTests extends TestBase {

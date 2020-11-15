@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationTests extends TestBase {
