@@ -21,8 +21,10 @@ public class GroupCreationTests extends TestBase {
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), befor.size() + 1);
 
+    // Поиск максимального элемента в списке с помощью анонимной функции - Lambda
     group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
     befor.add(group);
+    // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     Assert.assertEquals(new HashSet<Object>(befor), new HashSet<Object>(after));
   }
 

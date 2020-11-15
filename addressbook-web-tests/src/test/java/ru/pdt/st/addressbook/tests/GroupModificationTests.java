@@ -33,6 +33,7 @@ public class GroupModificationTests extends TestBase {
 
     befor.remove(befor.size() - 1);
     befor.add(group);
+    // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     Assert.assertEquals(new HashSet<Object>(befor), new HashSet<Object>(after));
   }
 

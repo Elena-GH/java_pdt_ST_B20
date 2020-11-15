@@ -25,6 +25,8 @@ public class GroupDeletionTests extends TestBase {
     Assert.assertEquals(after.size(), befor.size() - 1);
 
     befor.remove(befor.size() - 1);
+    // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
+    // При этом сравнение выполняется средствами тестовго фреймворка testng
     Assert.assertEquals(befor, after);
   }
 
