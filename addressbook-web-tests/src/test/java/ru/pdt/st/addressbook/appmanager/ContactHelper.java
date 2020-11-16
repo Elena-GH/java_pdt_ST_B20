@@ -55,6 +55,7 @@ public class ContactHelper extends HelperBase {
 
   public void confirmAction() {
     wd.switchTo().alert().accept();
+    wd.findElement(By.cssSelector("div.msgbox"));
   }
 
   public void returnToHomePage() {
@@ -76,8 +77,8 @@ public class ContactHelper extends HelperBase {
     List<ContactData> contacts = new ArrayList<>();
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
-      String firstName = element.findElement(By.xpath("td[3]")).getText();
       String lastName = element.findElement(By.xpath("td[2]")).getText();
+      String firstName = element.findElement(By.xpath("td[3]")).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
       ContactData contact = new ContactData(id, firstName, lastName, null, null, null);
       contacts.add(contact);
