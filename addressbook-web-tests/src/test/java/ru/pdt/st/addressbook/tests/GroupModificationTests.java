@@ -1,6 +1,7 @@
 package ru.pdt.st.addressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.GroupData;
 
@@ -9,8 +10,8 @@ import java.util.List;
 
 public class GroupModificationTests extends TestBase {
 
-  @Test
-  public void testGroupmodification() throws Exception {
+  @BeforeMethod
+  public void ensurePreconditions() {
     app.getNavigationHelper().gotoGroupPage();
     if (! app.getGroupHelper().isThereAGroup()) {
       app.getGroupHelper().createGroup(new GroupData(
@@ -18,20 +19,22 @@ public class GroupModificationTests extends TestBase {
               null,
               null));
     }
+  }
+
+  @Test
+  public void testGroupmodification() throws Exception {
     List<GroupData> befor = app.getGroupHelper().getGroupList();
-    app.getGroupHelper().selectGroup(befor.size() - 1);
-    app.getGroupHelper().initGroupModification();
-    GroupData group = new GroupData(befor.get(befor.size() - 1).getId(),
+    int index = befor.size() - 1;
+    GroupData group = new GroupData(befor.get(index).getId(),
             "New_Group_Name",
             "Group_Header",
             "New_Group_Footer");
-    app.getGroupHelper().fillGroupForm(group);
-    app.getGroupHelper().submitGroupModification();
-    app.getGroupHelper().returnToGroupPage();
+
+    app.getGroupHelper().modifyGroup(index, group);
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), befor.size());
 
-    befor.remove(befor.size() - 1);
+    befor.remove(index);
     befor.add(group);
     // Сортировка списков до и после теста с помощью анонимной функции - Lambda
     Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
