@@ -11,7 +11,7 @@ public class ContactCreationTests extends TestBase {
 
   @Test (enabled = false)
   public void testContactCreation() throws Exception {
-    app.goTo().gotoHomePage();
+    app.goTo().homePage();
     List<ContactData> befor = app.getContactHelper().getContactList();
     ContactData contact = new ContactData(
             "Contact_First_Name",
