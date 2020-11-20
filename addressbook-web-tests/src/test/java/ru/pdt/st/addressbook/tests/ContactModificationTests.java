@@ -14,7 +14,7 @@ public class ContactModificationTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (! app.contact().isThereAContact()) {
-      app.contact().createContact(new ContactData(
+      app.contact().create(new ContactData(
               "Contact_First_Name",
               "Contact_Last_Name",
               "+7 (123) 123-45-67",
@@ -33,7 +33,7 @@ public class ContactModificationTests extends TestBase {
             "+7 (321) 123-45-67",
             "new_contact_mail@gmail.com",
             null);
-    app.contact().modifyContact(index, contact);
+    app.contact().modify(index, contact);
     List<ContactData> after = app.contact().list();
     Assert.assertEquals(befor.size(), after.size());
 

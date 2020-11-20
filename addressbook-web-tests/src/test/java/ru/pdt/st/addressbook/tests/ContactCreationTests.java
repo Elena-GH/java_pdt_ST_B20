@@ -19,7 +19,7 @@ public class ContactCreationTests extends TestBase {
             "+7 (123) 123-45-67",
             "contact_mail@gmail.com",
             "Group_Name");
-    app.contact().createContact(contact);
+    app.contact().create(contact);
     List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), befor.size() + 1);
 

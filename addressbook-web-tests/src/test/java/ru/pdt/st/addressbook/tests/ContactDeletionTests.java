@@ -13,7 +13,7 @@ public class ContactDeletionTests extends TestBase{
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (! app.contact().isThereAContact()) {
-      app.contact().createContact(new ContactData(
+      app.contact().create(new ContactData(
               "Contact_First_Name",
               "Contact_Last_Name",
               "+7 (123) 123-45-67",
