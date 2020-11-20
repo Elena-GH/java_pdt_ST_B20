@@ -1,11 +1,13 @@
 package ru.pdt.st.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.GroupData;
+import ru.pdt.st.addressbook.model.Groups;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class GroupModificationTests extends TestBase {
 
@@ -18,8 +20,8 @@ public class GroupModificationTests extends TestBase {
   }
 
   @Test
-  public void testGroupmodification() throws Exception {
-    Set<GroupData> befor = app.group().all();
+  public void testGroupModification() throws Exception {
+    Groups befor = app.group().all();
     // Получение случайного идентификатора группы
     GroupData modifiedGroup = befor.iterator().next();
     GroupData group = new GroupData()
@@ -28,14 +30,14 @@ public class GroupModificationTests extends TestBase {
             .withHeader("Group_Header")
             .withFooter("New_Group_Footer");
     app.group().modify(group);
-    Set<GroupData> after = app.group().all();
-    Assert.assertEquals(after.size(), befor.size());
+    Groups after = app.group().all();
+    assertEquals(after.size(), befor.size());
 
-    befor.remove(modifiedGroup);
-    befor.add(group);
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
-    // При этом сравнение выполняется средствами тестовго фреймворка testng
-    Assert.assertEquals(befor, after);
+    // Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
+    // Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
+    // При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
+    assertThat(after, equalTo(befor.withOut(modifiedGroup).withAdded(group)));
   }
 
 }
