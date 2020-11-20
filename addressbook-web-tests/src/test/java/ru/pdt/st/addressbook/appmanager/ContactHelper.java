@@ -77,6 +77,12 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
+  public void delete(int index) {
+    selectContact(index);
+    deleteSelectedGroups();
+    confirmAction();
+  }
+
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }

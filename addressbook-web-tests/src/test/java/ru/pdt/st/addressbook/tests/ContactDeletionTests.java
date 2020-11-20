@@ -25,14 +25,12 @@ public class ContactDeletionTests extends TestBase{
   @Test
   public void testContactDeletion() {
     List<ContactData> befor = app.contact().list();
-    app.contact().selectContact(befor.size() - 1);
-    app.contact().deleteSelectedGroups();
-    app.contact().confirmAction();
-    app.goTo().homePage();
+    int index = befor.size() - 1;
+    app.contact().delete(index);
     List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), befor.size() - 1);
 
-    befor.remove(befor.size() - 1);
+    befor.remove(index);
     // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
     // При этом сравнение выполняется средствами тестовго фреймворка testng
     Assert.assertEquals(befor, after);
