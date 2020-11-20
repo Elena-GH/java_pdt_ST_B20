@@ -10,9 +10,9 @@ public class GroupDeletionTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.getNavigationHelper().gotoGroupPage();
-    if (! app.getGroupHelper().isThereAGroup()) {
-      app.getGroupHelper().createGroup(new GroupData(
+    app.goTo().groupPage();
+    if (app.group().list().size() == 0) {
+      app.group().create(new GroupData(
               "Group_Name",
               null,
               null));
@@ -21,14 +21,13 @@ public class GroupDeletionTests extends TestBase {
 
   @Test
   public void testGroupDeletion() throws Exception {
-    List<GroupData> befor = app.getGroupHelper().getGroupList();
-    app.getGroupHelper().selectGroup(befor.size() - 1);
-    app.getGroupHelper().deleteSelectedGroups();
-    app.getGroupHelper().returnToGroupPage();
-    List<GroupData> after = app.getGroupHelper().getGroupList();
+    List<GroupData> befor = app.group().list();
+    int index = befor.size() - 1;
+   app.group().delete(index);
+    List<GroupData> after = app.group().list();
     Assert.assertEquals(after.size(), befor.size() - 1);
 
-    befor.remove(befor.size() - 1);
+    befor.remove(index);
     // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
     // При этом сравнение выполняется средствами тестовго фреймворка testng
     Assert.assertEquals(befor, after);
