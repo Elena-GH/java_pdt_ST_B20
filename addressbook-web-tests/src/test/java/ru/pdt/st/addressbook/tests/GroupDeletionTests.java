@@ -1,11 +1,13 @@
 package ru.pdt.st.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.GroupData;
+import ru.pdt.st.addressbook.model.Groups;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class GroupDeletionTests extends TestBase {
 
@@ -19,17 +21,16 @@ public class GroupDeletionTests extends TestBase {
 
   @Test
   public void testGroupDeletion() throws Exception {
-    Set<GroupData> befor = app.group().all();
+    Groups befor = app.group().all();
     // Получение случайного идентификатора группы
     GroupData deletedGroup = befor.iterator().next();
     app.group().delete(deletedGroup);
-    Set<GroupData> after = app.group().all();
-    Assert.assertEquals(after.size(), befor.size() - 1);
+    Groups after = app.group().all();
+    assertEquals(after.size(), befor.size() - 1);
 
-    befor.remove(deletedGroup);
     // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
     // При этом сравнение выполняется средствами тестовго фреймворка testng
-    Assert.assertEquals(befor, after);
+    assertThat(after, equalTo(befor.withOut(deletedGroup)));
   }
 
 }
