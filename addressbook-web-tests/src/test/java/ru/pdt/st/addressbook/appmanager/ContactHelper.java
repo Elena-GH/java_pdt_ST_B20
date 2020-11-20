@@ -8,6 +8,7 @@ import org.testng.Assert;
 import ru.pdt.st.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -69,6 +70,14 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
+  public void modifyContact(int index, ContactData contact) {
+    initContactModification(index);
+    fillContactForm(contact, false);
+    submitContactModification();
+    returnToHomePage();
+  }
+
+
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
@@ -85,4 +94,5 @@ public class ContactHelper extends HelperBase {
     }
    return contacts;
   }
+
 }

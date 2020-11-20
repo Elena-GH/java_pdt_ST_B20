@@ -1,6 +1,7 @@
 package ru.pdt.st.addressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
 
@@ -8,8 +9,8 @@ import java.util.List;
 
 public class ContactDeletionTests extends TestBase{
 
-  @Test (enabled = false)
-  public void testContactDeletion() {
+  @BeforeMethod
+  public void ensurePreconditions() {
     app.goTo().gotoHomePage();
     if (! app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData(
@@ -19,6 +20,10 @@ public class ContactDeletionTests extends TestBase{
               "contact_mail@gmail.com",
               "Group_Name"));
     }
+  }
+
+  @Test
+  public void testContactDeletion() {
     List<ContactData> befor = app.getContactHelper().getContactList();
     app.getContactHelper().selectContact(befor.size() - 1);
     app.getContactHelper().deleteSelectedGroups();
