@@ -25,7 +25,7 @@ public class ContactModificationTests extends TestBase {
 
   @Test
   public void testContactModification() {
-    List<ContactData> befor = app.contact().getContactList();
+    List<ContactData> befor = app.contact().list();
     int index = befor.size() - 1;
     ContactData contact = new ContactData(befor.get(befor.size() - 1).getId(),
             "New_Contact_First_Name",
@@ -34,7 +34,7 @@ public class ContactModificationTests extends TestBase {
             "new_contact_mail@gmail.com",
             null);
     app.contact().modifyContact(index, contact);
-    List<ContactData> after = app.contact().getContactList();
+    List<ContactData> after = app.contact().list();
     Assert.assertEquals(befor.size(), after.size());
 
     befor.remove(index);

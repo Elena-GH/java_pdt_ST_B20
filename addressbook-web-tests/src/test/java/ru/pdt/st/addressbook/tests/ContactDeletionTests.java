@@ -24,12 +24,12 @@ public class ContactDeletionTests extends TestBase{
 
   @Test
   public void testContactDeletion() {
-    List<ContactData> befor = app.contact().getContactList();
+    List<ContactData> befor = app.contact().list();
     app.contact().selectContact(befor.size() - 1);
     app.contact().deleteSelectedGroups();
     app.contact().confirmAction();
     app.goTo().homePage();
-    List<ContactData> after = app.contact().getContactList();
+    List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), befor.size() - 1);
 
     befor.remove(befor.size() - 1);
