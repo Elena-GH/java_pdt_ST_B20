@@ -43,12 +43,12 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
   }
 
-  public void submitContactModification() {
-    click(By.xpath("(//input[@name='update'])[2]"));
+  private void initContactModificationById(int id) {
+    wd.findElement(By.xpath("(//img[@alt='Edit'])['" + id + "']")).click();
   }
 
-  public void selectContact(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
+  public void submitContactModification() {
+    click(By.xpath("(//input[@name='update'])[2]"));
   }
 
   public void selectContactById(int id) {
@@ -62,6 +62,11 @@ public class ContactHelper extends HelperBase {
   public void confirmAction() {
     wd.switchTo().alert().accept();
     wd.findElement(By.cssSelector("div.msgbox"));
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   public void returnToHomePage() {
@@ -75,17 +80,16 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-  public void modify(int index, ContactData contact) {
-    initContactModification(index);
+  public void modify(ContactData contact) {
+    initContactModificationById(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
+    try {
+      Thread.sleep(10000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     returnToHomePage();
-  }
-
-  public void delete(int index) {
-    selectContact(index);
-    deleteSelectedGroups();
-    confirmAction();
   }
 
   public void delete(ContactData contact) {

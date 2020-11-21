@@ -22,7 +22,7 @@ public class GroupModificationTests extends TestBase {
   @Test
   public void testGroupModification() throws Exception {
     Groups befor = app.group().all();
-    // Получение случайного идентификатора группы
+    // Выбор случайного элемента из множества
     GroupData modifiedGroup = befor.iterator().next();
     GroupData group = new GroupData()
             .withId(modifiedGroup.getId())

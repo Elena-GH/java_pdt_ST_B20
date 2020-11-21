@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
 
-import java.util.List;
 import java.util.Set;
 
 public class ContactDeletionTests extends TestBase{
@@ -26,6 +25,7 @@ public class ContactDeletionTests extends TestBase{
   @Test
   public void testContactDeletion() {
     Set<ContactData> befor = app.contact().all();
+    // Выбор случайного элемента из множества
     ContactData deletedContact = befor.iterator().next();
     app.contact().delete(deletedContact);
     Set<ContactData> after = app.contact().all();

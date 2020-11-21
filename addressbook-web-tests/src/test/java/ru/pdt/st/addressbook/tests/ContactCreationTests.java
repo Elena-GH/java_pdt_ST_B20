@@ -4,8 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
 
-import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
 
 public class ContactCreationTests extends TestBase {

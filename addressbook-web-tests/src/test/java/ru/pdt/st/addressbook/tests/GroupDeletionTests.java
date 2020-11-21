@@ -22,7 +22,7 @@ public class GroupDeletionTests extends TestBase {
   @Test
   public void testGroupDeletion() throws Exception {
     Groups befor = app.group().all();
-    // Получение случайного идентификатора группы
+    // Выбор случайного элемента из множества
     GroupData deletedGroup = befor.iterator().next();
     app.group().delete(deletedGroup);
     Groups after = app.group().all();
