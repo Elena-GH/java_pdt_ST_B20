@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
 
 import java.util.List;
+import java.util.Set;
 
 public class ContactDeletionTests extends TestBase{
 
@@ -24,13 +25,13 @@ public class ContactDeletionTests extends TestBase{
 
   @Test
   public void testContactDeletion() {
-    List<ContactData> befor = app.contact().list();
-    int index = befor.size() - 1;
-    app.contact().delete(index);
-    List<ContactData> after = app.contact().list();
+    Set<ContactData> befor = app.contact().all();
+    ContactData deletedContact = befor.iterator().next();
+    app.contact().delete(deletedContact);
+    Set<ContactData> after = app.contact().all();
     Assert.assertEquals(after.size(), befor.size() - 1);
 
-    befor.remove(index);
+    befor.remove(deletedContact);
     // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
     // При этом сравнение выполняется средствами тестовго фреймворка testng
     Assert.assertEquals(befor, after);
