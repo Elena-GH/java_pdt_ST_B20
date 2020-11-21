@@ -28,7 +28,7 @@ public class ContactCreationTests extends TestBase {
     // Поиск объекта с максимальным идентификатором
     contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
     befor.add(contact);
-    // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
+    // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // При этом сравнение выполняется средствами тестовго фреймворка testng
     Assert.assertEquals(befor, after);
   }

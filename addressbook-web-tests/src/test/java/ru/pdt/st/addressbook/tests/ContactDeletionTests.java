@@ -32,7 +32,7 @@ public class ContactDeletionTests extends TestBase{
     Assert.assertEquals(after.size(), befor.size() - 1);
 
     befor.remove(deletedContact);
-    // Сравнение списков групп до и после теста с помощью списков (упорядоченные коллекции)
+    // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // При этом сравнение выполняется средствами тестовго фреймворка testng
     Assert.assertEquals(befor, after);
   }
