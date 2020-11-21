@@ -30,8 +30,8 @@ public class GroupModificationTests extends TestBase {
             .withHeader("Group_Header")
             .withFooter("New_Group_Footer");
     app.group().modify(group);
+    assertThat(app.group().count(), equalTo(befor.size()));
     Groups after = app.group().all();
-    assertEquals(after.size(), befor.size());
 
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor

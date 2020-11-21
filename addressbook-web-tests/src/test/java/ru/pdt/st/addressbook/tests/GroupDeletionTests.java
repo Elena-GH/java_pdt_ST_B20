@@ -25,8 +25,8 @@ public class GroupDeletionTests extends TestBase {
     // Выбор случайного элемента из множества
     GroupData deletedGroup = befor.iterator().next();
     app.group().delete(deletedGroup);
+    assertThat(app.group().count(), equalTo(befor.size() - 1));
     Groups after = app.group().all();
-    assertEquals(after.size(), befor.size() - 1);
 
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor

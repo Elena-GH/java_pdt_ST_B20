@@ -15,8 +15,8 @@ public class GroupCreationTests extends TestBase {
     Groups befor = app.group().all();
     GroupData group = new GroupData().withName("Group_Name");
     app.group().create(group);
+    assertThat(app.group().count(), equalTo(befor.size() + 1));
     Groups after = app.group().all();
-    assertThat(after.size(), equalTo(befor.size() + 1));
 
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // Постулируется, что дабавленный элемент имеет максимальный идентификатор
@@ -26,6 +26,17 @@ public class GroupCreationTests extends TestBase {
     assertThat(after, equalTo(
             befor.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
 
+  }
+
+  @Test
+  public void testBadGroupCreation() throws Exception {
+    app.goTo().groupPage();
+    Groups befor = app.group().all();
+    GroupData group = new GroupData().withName("Group_Name'");
+    app.group().create(group);
+    assertThat(app.group().count(), equalTo(befor.size()));
+    Groups after = app.group().all();
+    assertThat(after, equalTo(befor));
   }
 
 }
