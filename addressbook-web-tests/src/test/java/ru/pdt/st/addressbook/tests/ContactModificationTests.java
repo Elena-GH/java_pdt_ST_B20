@@ -1,5 +1,6 @@
 package ru.pdt.st.addressbook.tests;
 
+import org.junit.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
@@ -7,13 +8,14 @@ import ru.pdt.st.addressbook.model.Contacts;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class ContactModificationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().homePage();
-    if (app.contact().list().size() == 0) {
+    if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData()
               .withFirstName("Contact_First_Name")
               .withLastName("Contact_Last_Name")
@@ -36,7 +38,7 @@ public class ContactModificationTests extends TestBase {
             .withEmail("new_contact_mail@gmail.com");
     app.contact().modify(contact);
     Contacts after = app.contact().all();
-    assertThat(befor.size(), equalTo(after.size()));
+    assertEquals(befor.size(), (after.size()));
 
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
