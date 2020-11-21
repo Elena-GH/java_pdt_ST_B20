@@ -10,6 +10,7 @@ import ru.pdt.st.addressbook.model.ContactData;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -100,6 +101,21 @@ public class ContactHelper extends HelperBase {
               .withLastName(lastName));
     }
    return contacts;
+  }
+
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
+    List<WebElement> elements = wd.findElements(By.name("entry"));
+    for (WebElement element : elements) {
+      String lastName = element.findElement(By.xpath("td[2]")).getText();
+      String firstName = element.findElement(By.xpath("td[3]")).getText();
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+      contacts.add(new ContactData()
+              .withId(id)
+              .withFirstName(firstName)
+              .withLastName(lastName));
+    }
+    return contacts;
   }
 
 }
