@@ -38,7 +38,7 @@ public class ContactModificationTests extends TestBase {
             .withEmail("new_contact_mail@gmail.com");
     app.contact().modify(contact);
     Contacts after = app.contact().all();
-    assertEquals(befor.size(), (after.size()));
+    assertThat(befor.size(), equalTo(after.size()));
 
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
