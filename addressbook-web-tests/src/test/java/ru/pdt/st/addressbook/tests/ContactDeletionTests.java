@@ -13,12 +13,12 @@ public class ContactDeletionTests extends TestBase{
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (app.contact().list().size() == 0) {
-      app.contact().create(new ContactData(
-              "Contact_First_Name",
-              "Contact_Last_Name",
-              "+7 (123) 123-45-67",
-              "contact_mail@gmail.com",
-              "Group_Name"));
+      app.contact().create(new ContactData()
+              .withFirstName("Contact_First_Name")
+              .withLastName("Contact_Last_Name")
+              .withMobile("+7 (123) 123-45-67")
+              .withEmail("contact_mail@gmail.com")
+              .withGroup("Group_Name"));
     }
   }
 
