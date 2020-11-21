@@ -1,11 +1,12 @@
 package ru.pdt.st.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
+import ru.pdt.st.addressbook.model.Contacts;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactModificationTests extends TestBase {
 
@@ -24,7 +25,7 @@ public class ContactModificationTests extends TestBase {
 
   @Test
   public void testContactModification() {
-    Set<ContactData> befor = app.contact().all();
+    Contacts befor = app.contact().all();
     // Выбор случайного элемента из множества
     ContactData modifiedContact = befor.iterator().next();
     ContactData contact = new ContactData()
@@ -34,14 +35,14 @@ public class ContactModificationTests extends TestBase {
             .withMobile("+7 (321) 123-45-67")
             .withEmail("new_contact_mail@gmail.com");
     app.contact().modify(contact);
-    Set<ContactData> after = app.contact().all();
-    Assert.assertEquals(befor.size(), after.size());
+    Contacts after = app.contact().all();
+    assertThat(befor.size(), equalTo(after.size()));
 
-    befor.remove(modifiedContact);
-    befor.add(contact);
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
-    // При этом сравнение выполняется средствами тестовго фреймворка testng
-    Assert.assertEquals(befor, after);
+    // Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
+    // Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
+    // При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
+    assertThat(after, equalTo(befor.withOut(modifiedContact).withAdded(contact)));
   }
 
 }
