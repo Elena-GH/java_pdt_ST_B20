@@ -17,7 +17,7 @@ public class ContactDeletionTests extends TestBase{
       app.contact().create(new ContactData()
               .withFirstName("Contact_First_Name")
               .withLastName("Contact_Last_Name")
-              .withMobile("+7 (123) 123-45-67")
+              .withMobilePhone("+7 (123) 123-45-67")
               .withEmail("contact_mail@gmail.com")
               .withGroup("Group_Name"));
     }
@@ -29,8 +29,8 @@ public class ContactDeletionTests extends TestBase{
     // Выбор случайного элемента из множества
     ContactData deletedContact = befor.iterator().next();
     app.contact().delete(deletedContact);
+    assertThat(app.contact().count(), equalTo(befor.size() - 1));
     Contacts after = app.contact().all();
-    assertThat(after.size(), equalTo(befor.size() - 1));
 
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor

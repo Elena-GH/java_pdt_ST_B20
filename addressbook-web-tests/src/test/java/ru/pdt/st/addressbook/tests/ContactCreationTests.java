@@ -16,12 +16,12 @@ public class ContactCreationTests extends TestBase {
     ContactData contact = new ContactData()
             .withFirstName("Contact_First_Name")
             .withLastName("Contact_Last_Name")
-            .withMobile("+7 (123) 123-45-67")
+            .withMobilePhone("+7 (123) 123-45-67")
             .withEmail("contact_mail@gmail.com")
             .withGroup("Group_Name");
     app.contact().create(contact);
+    assertThat(app.contact().count(), equalTo(befor.size() + 1));
     Contacts after = app.contact().all();
-    assertThat(after.size(), equalTo(befor.size() + 1));
 
     // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
     // Постулируется, что дабавленный элемент имеет максимальный идентификатор
@@ -30,6 +30,22 @@ public class ContactCreationTests extends TestBase {
     // При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     assertThat(after, equalTo(
             befor.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+  }
+
+  @Test
+  public void testBadContactCreation() throws Exception {
+    app.goTo().homePage();
+    Contacts befor = app.contact().all();
+    ContactData contact = new ContactData()
+            .withFirstName("Contact_First_Name'")
+            .withLastName("Contact_Last_Name")
+            .withMobilePhone("+7 (123) 123-45-67")
+            .withEmail("contact_mail@gmail.com")
+            .withGroup("Group_Name");
+    app.contact().create(contact);
+    assertThat(app.contact().count(), equalTo(befor.size()));
+    Contacts after = app.contact().all();
+    assertThat(after, equalTo(befor));
   }
 
 }
