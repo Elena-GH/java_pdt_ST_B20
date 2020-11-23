@@ -33,10 +33,12 @@ public class GroupModificationTests extends TestBase {
     assertEquals(app.contact().count(), befor.size());
     Groups after = app.group().all();
 
-    // Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
-    // Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
-    // Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
-    // При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
+    /*
+     Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
+     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
+     Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
+     При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
+    */
     assertThat(after, equalTo(befor.withOut(modifiedGroup).withAdded(group)));
   }
 
