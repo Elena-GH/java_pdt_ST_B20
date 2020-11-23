@@ -59,7 +59,8 @@ public class ContactDataTests extends TestBase {
 
   private String mergeEmail(ContactData contact) {
     return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
-            .stream().collect(Collectors.joining("\n"));
+            .stream().filter((s) -> ! s.equals(""))
+            .collect(Collectors.joining("\n"));
   }
 
   public static String cleaned(String phone) {
