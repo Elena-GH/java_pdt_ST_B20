@@ -1,0 +1,32 @@
+[
+  {
+    "firstName": "First_Name 1",
+    "lastName": "Last_Name 1",
+    "address": "123456, г.Москва, Московский пр-т, д.1, стр.1",
+    "mobile": "+7 (123) 123-45-67",
+    "work": "+7 (456) 123-45-67",
+    "email": "mail_1@gmail.com",
+    "email2": "mail2_1@gmail.com",
+    "group": "Group_Name"
+  },
+  {
+    "firstName": "First_Name 2",
+    "lastName": "Last_Name 2",
+    "address": "123456, г.Москва, Московский пр-т, д.2, стр.1",
+    "mobile": "+7 (123) 123-45-67",
+    "work": "+7 (456) 123-45-67",
+    "email": "mail_2@gmail.com",
+    "email2": "mail2_2@gmail.com",
+    "group": "Group_Name"
+  },
+  {
+    "firstName": "First_Name 3",
+    "lastName": "Last_Name 3",
+    "address": "123456, г.Москва, Московский пр-т, д.3, стр.1",
+    "mobile": "+7 (123) 123-45-67",
+    "work": "+7 (456) 123-45-67",
+    "email": "mail_3@gmail.com",
+    "email2": "mail2_3@gmail.com",
+    "group": "Group_Name"
+  }
+]

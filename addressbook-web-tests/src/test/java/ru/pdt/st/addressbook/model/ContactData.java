@@ -1,23 +1,34 @@
 package ru.pdt.st.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+
 import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
   private int id = Integer.MAX_VALUE;
+  @Expose
   private String firstName;
+  @Expose
   private String lastName;
+  @Expose
+  private File photo;
+  @Expose
   private String address;
   private String home;
+  @Expose
   private String mobile;
+  @Expose
   private String work;
   private String allPhones;
+  @Expose
   private String email;
+  @Expose
   private String email2;
   private String email3;
   private String allEmail;
+  @Expose
   private String group;
-  private File photo;
 
   public File getPhoto() {
     return photo;
