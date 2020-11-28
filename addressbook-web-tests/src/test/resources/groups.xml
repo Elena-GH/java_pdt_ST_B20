@@ -1,0 +1,23 @@
+<list>
+  <group>
+    <name>Group_Name 1</name>
+    <header>Group_Header 
+1</header>
+    <footer>Group_Footer 
+1</footer>
+  </group>
+  <group>
+    <name>Group_Name 2</name>
+    <header>Group_Header 
+2</header>
+    <footer>Group_Footer 
+2</footer>
+  </group>
+  <group>
+    <name>Group_Name 3</name>
+    <header>Group_Header 
+3</header>
+    <footer>Group_Footer 
+3</footer>
+  </group>
+</list>
