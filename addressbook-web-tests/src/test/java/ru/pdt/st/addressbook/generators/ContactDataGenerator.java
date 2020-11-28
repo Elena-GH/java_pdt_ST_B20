@@ -52,10 +52,9 @@ public class ContactDataGenerator {
     // System.out.println(new File(".").getAbsolutePath());
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(json);
-    // Принудительное завершения записи в файл данных из кеша
-    writer.close();
+    try (Writer writer = new FileWriter(file)) {
+      writer.write(json);
+    }
   }
 
   private List<ContactData> generateContacts(int count) {
