@@ -53,6 +53,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -83,7 +90,7 @@
       <recent name="C:\GHClone\java_pdt_ST_B20\addressbook-web-tests\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GroupCreationTests">
+  <component name="RunManager" selected="TestNG.DbConnectionTest">
     <configuration name="ContactCreationTests.testContactCreation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
@@ -99,6 +106,33 @@
       <option name="METHOD_NAME" value="testContactCreation" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DbConnectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.pdt.st.addressbook.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.DbConnectionTest" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="" />
@@ -160,6 +194,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.DbConnectionTest" />
         <item itemvalue="TestNG.GroupCreationTests" />
         <item itemvalue="TestNG.ContactCreationTests.testContactCreation" />
         <item itemvalue="TestNG.ContactCreationTests.testContactCreation" />
@@ -198,22 +233,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="667" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1606683389675" />
-    <state width="1876" height="346" key="GridCell.Tab.0.bottom" timestamp="1607024192366">
+    <state width="1876" height="346" key="GridCell.Tab.0.bottom" timestamp="1607113702211">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1876" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1607024192366" />
-    <state width="1876" height="346" key="GridCell.Tab.0.center" timestamp="1607024192366">
+    <state width="1876" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1607113702211" />
+    <state width="1876" height="346" key="GridCell.Tab.0.center" timestamp="1607113702211">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1876" height="346" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1607024192366" />
-    <state width="1876" height="346" key="GridCell.Tab.0.left" timestamp="1607024192366">
+    <state width="1876" height="346" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1607113702211" />
+    <state width="1876" height="346" key="GridCell.Tab.0.left" timestamp="1607113702211">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1876" height="346" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1607024192366" />
-    <state width="1876" height="346" key="GridCell.Tab.0.right" timestamp="1607024192366">
+    <state width="1876" height="346" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1607113702211" />
+    <state width="1876" height="346" key="GridCell.Tab.0.right" timestamp="1607113702211">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1876" height="346" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1607024192366" />
+    <state width="1876" height="346" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1607113702211" />
     <state width="1876" height="346" key="GridCell.Tab.1.bottom" timestamp="1606684541372">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
