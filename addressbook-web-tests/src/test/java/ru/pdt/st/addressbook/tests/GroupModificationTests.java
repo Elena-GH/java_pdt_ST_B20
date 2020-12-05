@@ -13,15 +13,15 @@ public class GroupModificationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().groupPage();
-    if (app.group().all().size() == 0) {
+    if (app.db().groups().size() ==0 ) {
+      app.goTo().groupPage();
       app.group().create(new GroupData().withName("Group_Name"));
     }
   }
 
   @Test
   public void testGroupModification() throws Exception {
-    Groups befor = app.group().all();
+    Groups befor = app.db().groups();
     // Выбор случайного элемента из множества
     GroupData modifiedGroup = befor.iterator().next();
     GroupData group = new GroupData()
@@ -29,9 +29,10 @@ public class GroupModificationTests extends TestBase {
             .withName("New_Group_Name")
             .withHeader("Group_Header")
             .withFooter("New_Group_Footer");
+    app.goTo().groupPage();
     app.group().modify(group);
     assertEquals(app.contact().count(), befor.size());
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)

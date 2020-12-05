@@ -22,6 +22,7 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
   private ContactHelper contactHelper;
   private String browser;
+  private DbHelper dbHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -44,11 +45,18 @@ public class ApplicationManager {
     return navigationHelper;
   }
 
+  public DbHelper db() {
+    return dbHelper;
+  }
+
   public void init() throws IOException {
     // Загрузка конфигурационных параметров из файла .properties
     // Приоритет для файла target.properties, иначе конфигурация по-умолчанию из local.properties
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+    dbHelper = new DbHelper();
+
     if (browser.equals(BrowserType.FIREFOX)) {
       wd = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)) {
