@@ -63,13 +63,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.3\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1kxemvNMI8m2wWHf9FBz3kG6qGs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -82,7 +75,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Other File Types" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
@@ -90,7 +83,7 @@
       <recent name="C:\GHClone\java_pdt_ST_B20\addressbook-web-tests\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.DbConnectionTest">
+  <component name="RunManager" selected="TestNG.HbConnectionTest">
     <configuration name="ContactCreationTests.testContactCreation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
@@ -173,6 +166,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HbConnectionTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.pdt.st.addressbook.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.HbConnectionTest" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG">
       <useClassPathOnly />
       <option name="SUITE_NAME" value="" />
@@ -194,6 +214,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.HbConnectionTest" />
         <item itemvalue="TestNG.DbConnectionTest" />
         <item itemvalue="TestNG.GroupCreationTests" />
         <item itemvalue="TestNG.ContactCreationTests.testContactCreation" />
@@ -223,51 +244,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="644" y="160" width="1092" height="884" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606683765790">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="644" y="160" width="1092" height="884" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1606683765790" />
-    <state width="667" height="466" key="DebuggerActiveHint" timestamp="1606683389675">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="667" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1606683389675" />
-    <state width="1876" height="346" key="GridCell.Tab.0.bottom" timestamp="1607113702211">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1607113702211" />
-    <state width="1876" height="346" key="GridCell.Tab.0.center" timestamp="1607113702211">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="346" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1607113702211" />
-    <state width="1876" height="346" key="GridCell.Tab.0.left" timestamp="1607113702211">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="346" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1607113702211" />
-    <state width="1876" height="346" key="GridCell.Tab.0.right" timestamp="1607113702211">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="346" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1607113702211" />
-    <state width="1876" height="346" key="GridCell.Tab.1.bottom" timestamp="1606684541372">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1606684541372" />
-    <state width="1876" height="346" key="GridCell.Tab.1.center" timestamp="1606684541372">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="346" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1606684541372" />
-    <state width="1876" height="346" key="GridCell.Tab.1.left" timestamp="1606684541372">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="346" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1606684541372" />
-    <state width="1876" height="346" key="GridCell.Tab.1.right" timestamp="1606684541372">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="346" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1606684541372" />
-    <state x="237" y="124" key="SettingsEditor" timestamp="1607023549573">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="237" y="124" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1607023549573" />
   </component>
 </project>
