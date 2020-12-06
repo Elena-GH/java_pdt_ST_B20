@@ -38,10 +38,10 @@ public class ContactCreationTests extends TestBase {
   @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) throws Exception {
     app.goTo().homePage();
-    Contacts befor = app.contact().all();
+    Contacts befor = app.db().contacts();
     app.contact().create(contact);
     assertThat(app.contact().count(), equalTo(befor.size() + 1));
-    Contacts after = app.contact().all();
+    Contacts after =app.db().contacts();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
@@ -66,7 +66,7 @@ public class ContactCreationTests extends TestBase {
   @Test
   public void testBadContactCreation() throws Exception {
     app.goTo().homePage();
-    Contacts befor = app.contact().all();
+    Contacts befor = app.db().contacts();
     ContactData contact = new ContactData()
             .withFirstName("Contact_First_Name'")
             .withLastName("Contact_Last_Name")
@@ -78,7 +78,7 @@ public class ContactCreationTests extends TestBase {
             .withGroup("Group_Name");
     app.contact().create(contact);
     assertThat(app.contact().count(), equalTo(befor.size()));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(befor));
   }
 
