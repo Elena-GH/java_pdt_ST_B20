@@ -23,9 +23,8 @@ public class ContactData {
   @Column(name = "lastname")
   private String lastName;
 
-  @Column(name = "photo")
-  @Type(type = "text")
-  private String photo;
+  @Transient
+  private File photo;
 
   @Expose
   @Column(name = "address")
@@ -71,11 +70,11 @@ public class ContactData {
   private String group;
 
   public File getPhoto() {
-    return new File(photo);
+    return photo;
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo.getPath();
+    this.photo = photo;
     return this;
   }
 

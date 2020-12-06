@@ -12,8 +12,8 @@ public class ContactModificationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().homePage();
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size() == 0) {
+      app.goTo().homePage();
       app.contact().create(new ContactData()
               .withFirstName("Contact_First_Name")
               .withLastName("Contact_Last_Name")
@@ -28,7 +28,7 @@ public class ContactModificationTests extends TestBase {
 
   @Test
   public void testContactModification() {
-    Contacts befor = app.contact().all();
+    Contacts befor = app.db().contacts();
     // Выбор случайного элемента из множества
     ContactData modifiedContact = befor.iterator().next();
     ContactData contact = new ContactData()
@@ -40,9 +40,10 @@ public class ContactModificationTests extends TestBase {
             .withWorkPhone("+7 (654) 123-45-67")
             .withEmail("new_contact_mail@gmail.com")
             .withEmail2("new_contact_mail_2@gmail.com");
+    app.goTo().homePage();
     app.contact().modify(contact);
     assertThat(app.contact().count(), equalTo(befor.size()));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
