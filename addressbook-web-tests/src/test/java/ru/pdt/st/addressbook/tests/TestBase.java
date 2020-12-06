@@ -48,10 +48,12 @@ public class TestBase {
   }
 
   public void verifyGroupListInUI() {
-    Groups dbGroups = app.db().groups();
-    Groups uiGroups = app.group().all();
-    MatcherAssert.assertThat(uiGroups, equalTo(dbGroups.stream()
-            .map((g) -> new GroupData().withId(g.getId()).withName(g.getName()))
-            .collect(Collectors.toSet())));
+    if (Boolean.getBoolean("verifyUI")) {
+      Groups dbGroups = app.db().groups();
+      Groups uiGroups = app.group().all();
+      MatcherAssert.assertThat(uiGroups, equalTo(dbGroups.stream()
+              .map((g) -> new GroupData().withId(g.getId()).withName(g.getName()))
+              .collect(Collectors.toSet())));
+    }
   }
 }

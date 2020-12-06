@@ -152,7 +152,7 @@
       <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.GroupModificationTests" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true -DverifyUI=true" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="" />
       <option name="TEST_SEARCH_SCOPE">
