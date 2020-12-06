@@ -41,6 +41,8 @@ public class GroupModificationTests extends TestBase {
      При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     */
     assertThat(after, equalTo(befor.withOut(modifiedGroup).withAdded(group)));
+    // Контроль списков объектов на UI. Отключаемая проверка
+    verifyGroupListInUI();
   }
 
 }
