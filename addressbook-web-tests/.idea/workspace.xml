@@ -119,7 +119,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupCreationTests.testBadGroupCreation" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GroupCreationTests.testGroupCreation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
       <extension name="coverage">
@@ -131,7 +131,7 @@
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
       <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.GroupCreationTests" />
-      <option name="METHOD_NAME" value="testBadGroupCreation" />
+      <option name="METHOD_NAME" value="testGroupCreation" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
@@ -147,7 +147,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupCreationTests.testGroupCreation" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GroupDeletionTests.testGroupDeletion" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
       <extension name="coverage">
@@ -158,8 +158,8 @@
       </extension>
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.GroupCreationTests" />
-      <option name="METHOD_NAME" value="testGroupCreation" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.GroupDeletionTests" />
+      <option name="METHOD_NAME" value="testGroupDeletion" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
@@ -224,17 +224,17 @@
     <list>
       <item itemvalue="Application.GroupDataGenerator" />
       <item itemvalue="TestNG.GroupCreationTests" />
-      <item itemvalue="TestNG.GroupCreationTests.testBadGroupCreation" />
       <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
       <item itemvalue="TestNG.GroupModificationTests" />
+      <item itemvalue="TestNG.GroupDeletionTests.testGroupDeletion" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.GroupModificationTests" />
+        <item itemvalue="TestNG.GroupDeletionTests.testGroupDeletion" />
         <item itemvalue="TestNG.GroupCreationTests" />
         <item itemvalue="Application.GroupDataGenerator" />
         <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
-        <item itemvalue="TestNG.GroupCreationTests.testBadGroupCreation" />
       </list>
     </recent_temporary>
   </component>

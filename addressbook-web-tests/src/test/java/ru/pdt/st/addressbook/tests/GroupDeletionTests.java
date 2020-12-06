@@ -12,20 +12,21 @@ public class GroupDeletionTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().groupPage();
-    if (app.group().all().size() == 0) {
+    if (app.db().groups().size() ==0 ) {
+      app.goTo().groupPage();
       app.group().create(new GroupData().withName("Group_Name"));
     }
   }
 
   @Test
   public void testGroupDeletion() throws Exception {
-    Groups befor = app.group().all();
+    Groups befor = app.db().groups();
     // Выбор случайного элемента из множества
     GroupData deletedGroup = befor.iterator().next();
+    app.goTo().groupPage();
     app.group().delete(deletedGroup);
     assertThat(app.group().count(), equalTo(befor.size() - 1));
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
