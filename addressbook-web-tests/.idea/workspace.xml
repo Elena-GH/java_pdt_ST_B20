@@ -83,35 +83,7 @@
       <recent name="C:\GHClone\java_pdt_ST_B20\addressbook-web-tests\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ContactDataTests">
-    <configuration name="ContactCreationTests.testBadContactCreation" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <useClassPathOnly />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.pdt.st.addressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.ContactCreationTests" />
-      <option name="METHOD_NAME" value="testBadContactCreation" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.HbConnectionTest.testHbConnection">
     <configuration name="ContactDataTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
@@ -193,7 +165,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupModificationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="HbConnectionTest.testHbConnection" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
       <extension name="coverage">
@@ -204,9 +176,10 @@
       </extension>
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.GroupModificationTests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.HbConnectionTest" />
+      <option name="METHOD_NAME" value="testHbConnection" />
       <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="" />
@@ -239,20 +212,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ru.pdt.st.addressbook" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.pdt.st.addressbook.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="TestNG.GroupModificationTests" />
       <item itemvalue="TestNG.ContactModificationTests" />
-      <item itemvalue="TestNG.ContactCreationTests.testBadContactCreation" />
       <item itemvalue="TestNG.ContactDeletionTests" />
       <item itemvalue="TestNG.ContactDataTests" />
+      <item itemvalue="TestNG.ru.pdt.st.addressbook" />
+      <item itemvalue="TestNG.HbConnectionTest.testHbConnection" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.HbConnectionTest.testHbConnection" />
+        <item itemvalue="TestNG.ru.pdt.st.addressbook" />
         <item itemvalue="TestNG.ContactDataTests" />
         <item itemvalue="TestNG.ContactDeletionTests" />
         <item itemvalue="TestNG.ContactModificationTests" />
-        <item itemvalue="TestNG.ContactCreationTests.testBadContactCreation" />
-        <item itemvalue="TestNG.GroupModificationTests" />
       </list>
     </recent_temporary>
   </component>
