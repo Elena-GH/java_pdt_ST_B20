@@ -12,8 +12,8 @@ public class ContactDeletionTests extends TestBase{
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().homePage();
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size() == 0) {
+      app.goTo().homePage();
       app.contact().create(new ContactData()
               .withFirstName("Contact_First_Name")
               .withLastName("Contact_Last_Name")
@@ -28,12 +28,13 @@ public class ContactDeletionTests extends TestBase{
 
   @Test
   public void testContactDeletion() {
-    Contacts befor = app.contact().all();
+    Contacts befor = app.db().contacts();
     // Выбор случайного элемента из множества
     ContactData deletedContact = befor.iterator().next();
+    app.goTo().homePage();
     app.contact().delete(deletedContact);
     assertThat(app.contact().count(), equalTo(befor.size() - 1));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
