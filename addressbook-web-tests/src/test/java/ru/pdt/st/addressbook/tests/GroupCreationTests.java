@@ -57,10 +57,10 @@ public class GroupCreationTests extends TestBase {
   @Test(dataProvider = "validGroupsFromJson")
   public void testGroupCreation(GroupData group) {
     app.goTo().groupPage();
-    Groups befor = app.group().all();
+    Groups befor = app.db().groups();
     app.group().create(group);
     assertThat(app.group().count(), equalTo(befor.size() + 1));
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
@@ -76,11 +76,11 @@ public class GroupCreationTests extends TestBase {
   @Test
   public void testBadGroupCreation() throws Exception {
     app.goTo().groupPage();
-    Groups befor = app.group().all();
+    Groups befor = app.db().groups();
     GroupData group = new GroupData().withName("Group_Name'");
     app.group().create(group);
     assertThat(app.group().count(), equalTo(befor.size()));
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
     assertThat(after, equalTo(befor));
   }
 
