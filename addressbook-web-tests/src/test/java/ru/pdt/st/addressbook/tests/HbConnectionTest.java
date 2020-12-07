@@ -33,7 +33,7 @@ public class HbConnectionTest {
     }
   }
 
-  @Test (enabled = false) // Lecture 7.3
+  @Test // Lecture 7.3. OQL-запросы
   public void testHbConnection() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
