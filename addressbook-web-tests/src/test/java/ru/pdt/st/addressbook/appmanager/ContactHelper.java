@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.pdt.st.addressbook.model.ContactData;
 import ru.pdt.st.addressbook.model.Contacts;
+import ru.pdt.st.addressbook.model.Groups;
 
 import java.util.List;
 
@@ -31,7 +32,9 @@ public class ContactHelper extends HelperBase {
     type(By.name("email2"), contactData.getEmail2());
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      //if (ContactData.getGroup() != null) {
+      //  new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      //}
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
