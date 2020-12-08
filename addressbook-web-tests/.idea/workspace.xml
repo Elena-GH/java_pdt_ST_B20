@@ -83,7 +83,7 @@
       <recent name="C:\GHClone\java_pdt_ST_B20\addressbook-web-tests\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ContactModificationTests">
+  <component name="RunManager" selected="Application.ContactDataGenerator">
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -233,11 +233,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ContactDataGenerator" />
         <item itemvalue="TestNG.ContactModificationTests" />
         <item itemvalue="TestNG.ContactDeletionTests" />
         <item itemvalue="TestNG.ContactDataTests" />
         <item itemvalue="TestNG.ContactCreationTests" />
-        <item itemvalue="Application.ContactDataGenerator" />
       </list>
     </recent_temporary>
   </component>
