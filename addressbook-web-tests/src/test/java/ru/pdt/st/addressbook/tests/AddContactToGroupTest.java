@@ -1,5 +1,6 @@
 package ru.pdt.st.addressbook.tests;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
 import ru.pdt.st.addressbook.model.Contacts;
@@ -10,6 +11,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddContactToGroupTest extends TestBase {
+
+  @BeforeMethod
+  public void ensurePreconditions() {
+    Contacts contacts = app.db().contacts();
+    Groups groups = app.db().groups();
+    List<ContactData> contactList = new ArrayList<>();
+    for (ContactData c : contacts) {
+      if (c.getGroups().size() != groups.size()) {
+        contactList.add(c);
+      }
+    }
+    if (contactList.size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("Group_Name"));
+    }
+  }
 
   @Test
   public void testAddContactToGroup() {
