@@ -9,6 +9,11 @@ import ru.pdt.st.addressbook.model.Groups;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AddContactToGroupTest extends TestBase {
 
@@ -39,7 +44,6 @@ public class AddContactToGroupTest extends TestBase {
         contactList.add(c);
       }
     }
-    System.out.println(contactList);
     ContactData contact = contactList.iterator().next();
     // Исключаем из списка групп все группы, в которые уже входит отобранный контакт
     List<GroupData> groupList = new ArrayList<>();
@@ -48,11 +52,12 @@ public class AddContactToGroupTest extends TestBase {
         groupList.add(g);
       }
     }
-    System.out.println(groupList);
     GroupData group = groupList.iterator().next();
+    Contacts befor = group.getContacts();
     app.goTo().homePage();
     app.contact().addToGroup(contact, group);
     app.goTo().homePage();
+    Contacts after = app.db().group(group.getId()).getContacts();
+    assertThat(after.size(), equalTo(befor.size() + 1));
   }
-
 }
