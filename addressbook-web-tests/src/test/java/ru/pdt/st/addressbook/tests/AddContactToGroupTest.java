@@ -29,7 +29,7 @@ public class AddContactToGroupTest extends TestBase {
     }
     if (contactList.size() == 0) {
       app.goTo().groupPage();
-      app.group().create(new GroupData().withName("Group_Name"));
+      app.group().create(new GroupData().withName("New Group for testAddContactToGroup"));
     }
   }
 

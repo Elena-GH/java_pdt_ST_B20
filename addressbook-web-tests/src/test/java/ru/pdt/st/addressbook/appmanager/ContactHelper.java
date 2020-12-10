@@ -178,7 +178,7 @@ public class ContactHelper extends HelperBase {
   }
 
   private void selectTargetGroup(GroupData group) {
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(String.valueOf(group.getId()));
   }
 
   private void submitAddToGroup() {
