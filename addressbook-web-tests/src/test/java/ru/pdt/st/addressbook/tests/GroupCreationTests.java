@@ -61,16 +61,20 @@ public class GroupCreationTests extends TestBase {
     app.group().create(group);
     assertThat(app.group().count(), equalTo(before.size() + 1));
     Groups after = app.db().groups();
-
     /*
-     Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
-     Постулируется, что дабавленный элемент имеет максимальный идентификатор
-     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
-     Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded
-     При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
+      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
+      Постулируется, что дабавленный элемент имеет максимальный идентификатор
+      Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
+      Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded
+      При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     */
     assertThat(after, equalTo(
             before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+    /*
+      Контроль списков объектов на UI. Отключаемая проверка
+      Основана на сравнении списков UI по данным БД
+    */
+    verifyGroupListInUI();
   }
 
   @Test

@@ -33,15 +33,17 @@ public class GroupModificationTests extends TestBase {
     app.group().modify(group);
     assertEquals(app.contact().count(), before.size());
     Groups after = app.db().groups();
-
     /*
-     Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
-     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
-     Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
-     При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
+      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
+      Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
+      Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
+      При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     */
     assertThat(after, equalTo(before.withOut(modifiedGroup).withAdded(group)));
-    // Контроль списков объектов на UI. Отключаемая проверка
+    /*
+      Контроль списков объектов на UI. Отключаемая проверка
+      Основана на сравнении списков UI по данным БД
+    */
     verifyGroupListInUI();
   }
 
