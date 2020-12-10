@@ -8,7 +8,6 @@ import org.testng.Assert;
 import ru.pdt.st.addressbook.model.ContactData;
 import ru.pdt.st.addressbook.model.Contacts;
 import ru.pdt.st.addressbook.model.GroupData;
-import ru.pdt.st.addressbook.model.Groups;
 
 import java.util.List;
 
@@ -175,7 +174,7 @@ public class ContactHelper extends HelperBase {
     selectTargetGroup(group.getId());
     submitAddToGroup();
     goToContactList(group.getId());
-    selectGroupAll();
+    resetFilterByGroup();
   }
 
   private void selectTargetGroup(int id) {
@@ -190,7 +189,7 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector(String.format("a[href='./?group=%s']", id))).click();
   }
 
-  private void selectGroupAll() {
+  private void resetFilterByGroup() {
     new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
   }
 
@@ -199,7 +198,7 @@ public class ContactHelper extends HelperBase {
     selectContactById(contact.getId());
     submitRemoveFromGroup();
     goToContactList(group.getId());
-    selectGroupAll();
+    resetFilterByGroup();
   }
 
   private void selectSourceGroup(int id) {
