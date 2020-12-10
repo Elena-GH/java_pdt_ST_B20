@@ -24,6 +24,10 @@ public class ContactDataGenerator {
 
   @Parameter(names = "-d", description = "Data format")
   public String format;
+  /*
+    Пример строки параметров запуска Edit Configurations/Program Arguments
+    -f src/test/resources/contacts.json -c 3 -d json
+ */
 
   public static void main(String[] args) throws IOException {
     ContactDataGenerator generator = new ContactDataGenerator();
@@ -49,7 +53,6 @@ public class ContactDataGenerator {
   }
 
   private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
-    // System.out.println(new File(".").getAbsolutePath());
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(contacts);
     try (Writer writer = new FileWriter(file)) {

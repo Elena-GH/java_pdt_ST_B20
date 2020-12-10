@@ -58,6 +58,19 @@ public class ContactCreationTests extends TestBase {
     verifyContactListInUI();
   }
 
+  @Test
+  public void testContactCreationWithPhoto() throws Exception {
+    File photo = new File("src/test/resources/stru.png");
+    app.goTo().homePage();
+    Contacts before = app.db().contacts();
+    app.contact().create(new ContactData()
+            .withFirstName("Contact_First_Name")
+            .withLastName("Contact_Last_Name")
+            .withPhoto(photo)
+            .withAddress("Contact with Photo"));
+    assertThat(app.contact().count(), equalTo(before.size() + 1));
+  }
+
   @Test (enabled = false) // Lecture 6.1
   public void testCurrentDir() {
     File currentDir = new File(".");

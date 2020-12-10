@@ -9,6 +9,7 @@ import ru.pdt.st.addressbook.model.ContactData;
 import ru.pdt.st.addressbook.model.Contacts;
 import ru.pdt.st.addressbook.model.GroupData;
 
+import java.io.File;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
