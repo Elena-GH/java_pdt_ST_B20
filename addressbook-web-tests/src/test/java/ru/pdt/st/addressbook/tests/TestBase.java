@@ -1,6 +1,5 @@
 package ru.pdt.st.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
@@ -11,7 +10,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import ru.pdt.st.addressbook.appmanager.ApplicationManager;
 import ru.pdt.st.addressbook.model.ContactData;
-import ru.pdt.st.addressbook.model.Contacts;
 import ru.pdt.st.addressbook.model.GroupData;
 import ru.pdt.st.addressbook.model.Groups;
 
@@ -21,14 +19,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
 
 public class TestBase {
 
-  Logger logger = LoggerFactory.getLogger(TestBase.class);
-
   protected static final ApplicationManager app
           = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
+  Logger logger = LoggerFactory.getLogger(TestBase.class);
 
   @BeforeSuite(alwaysRun = true)
   public void setUp() throws Exception {
