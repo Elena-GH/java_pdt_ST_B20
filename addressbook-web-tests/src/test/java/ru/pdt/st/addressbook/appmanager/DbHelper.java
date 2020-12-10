@@ -11,6 +11,7 @@ import ru.pdt.st.addressbook.model.GroupData;
 import ru.pdt.st.addressbook.model.Groups;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DbHelper {
 
@@ -28,9 +29,13 @@ public class DbHelper {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<GroupData> result = session.createQuery("from GroupData").list();
+    List<GroupData> replaceResult = result.stream().map((g) -> g
+            .withFooter(g.getFooter().replaceAll("\r", ""))
+            .withHeader(g.getHeader().replaceAll("\r", "")))
+            .collect(Collectors.toList());
     session.getTransaction().commit();
     session.close();
-    return new Groups(result);
+    return new Groups(replaceResult);
   }
 
   public GroupData group(int id) {
