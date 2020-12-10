@@ -28,12 +28,12 @@ public class ContactDeletionTests extends TestBase{
 
   @Test
   public void testContactDeletion() {
-    Contacts befor = app.db().contacts();
+    Contacts before = app.db().contacts();
     // Выбор случайного элемента из множества
-    ContactData deletedContact = befor.iterator().next();
+    ContactData deletedContact = before.iterator().next();
     app.goTo().homePage();
     app.contact().delete(deletedContact);
-    assertThat(app.contact().count(), equalTo(befor.size() - 1));
+    assertThat(app.contact().count(), equalTo(before.size() - 1));
     Contacts after = app.db().contacts();
 
     /*
@@ -42,7 +42,7 @@ public class ContactDeletionTests extends TestBase{
      Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withOut
      При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     */
-    assertThat(after, equalTo(befor.withOut(deletedContact)));
+    assertThat(after, equalTo(before.withOut(deletedContact)));
   }
 
 }

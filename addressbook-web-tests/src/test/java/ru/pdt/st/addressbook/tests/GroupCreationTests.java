@@ -57,31 +57,31 @@ public class GroupCreationTests extends TestBase {
   @Test(dataProvider = "validGroupsFromJson")
   public void testGroupCreation(GroupData group) {
     app.goTo().groupPage();
-    Groups befor = app.db().groups();
+    Groups before = app.db().groups();
     app.group().create(group);
-    assertThat(app.group().count(), equalTo(befor.size() + 1));
+    assertThat(app.group().count(), equalTo(before.size() + 1));
     Groups after = app.db().groups();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
      Постулируется, что дабавленный элемент имеет максимальный идентификатор
-     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
+     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
      Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded
      При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     */
     assertThat(after, equalTo(
-            befor.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+            before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
 
   @Test
   public void testBadGroupCreation() throws Exception {
     app.goTo().groupPage();
-    Groups befor = app.db().groups();
+    Groups before = app.db().groups();
     GroupData group = new GroupData().withName("Group_Name'");
     app.group().create(group);
-    assertThat(app.group().count(), equalTo(befor.size()));
+    assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.db().groups();
-    assertThat(after, equalTo(befor));
+    assertThat(after, equalTo(before));
   }
 
 }

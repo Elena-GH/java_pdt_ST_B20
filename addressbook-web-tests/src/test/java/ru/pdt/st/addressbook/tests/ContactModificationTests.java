@@ -28,9 +28,9 @@ public class ContactModificationTests extends TestBase {
 
   @Test
   public void testContactModification() {
-    Contacts befor = app.db().contacts();
+    Contacts before = app.db().contacts();
     // Выбор случайного элемента из множества
-    ContactData modifiedContact = befor.iterator().next();
+    ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData()
             .withId(modifiedContact.getId())
             .withFirstName("New_Contact_First_Name")
@@ -42,16 +42,16 @@ public class ContactModificationTests extends TestBase {
             .withEmail2("new_contact_mail_2@gmail.com");
     app.goTo().homePage();
     app.contact().modify(contact);
-    assertThat(app.contact().count(), equalTo(befor.size()));
+    assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.db().contacts();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
-     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
+     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
      Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
      При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     */
-    assertThat(after, equalTo(befor.withOut(modifiedContact).withAdded(contact)));
+    assertThat(after, equalTo(before.withOut(modifiedContact).withAdded(contact)));
   }
 
 }

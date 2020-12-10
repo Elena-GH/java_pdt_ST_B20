@@ -172,20 +172,42 @@ public class ContactHelper extends HelperBase {
 
   public void addToGroup(ContactData contact, GroupData group) {
     selectContactById(contact.getId());
-    selectTargetGroup(group);
+    selectTargetGroup(group.getId());
     submitAddToGroup();
-    confirmAddToGroup();
+    goToContactList(group.getId());
+    selectGroupAll();
   }
 
-  private void selectTargetGroup(GroupData group) {
-    new Select(wd.findElement(By.name("to_group"))).selectByValue(String.valueOf(group.getId()));
+  private void selectTargetGroup(int id) {
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(String.valueOf(id));
   }
 
   private void submitAddToGroup() {
     click(By.name("add"));
   }
 
-  private void confirmAddToGroup() {
-    wd.findElement(By.cssSelector("div.msgbox"));
+  private void goToContactList(int id) {
+    wd.findElement(By.cssSelector(String.format("a[href='./?group=%s']", id))).click();
   }
+
+  private void selectGroupAll() {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
+  }
+
+  public void removeFromGroup(GroupData group, ContactData contact) {
+    selectSourceGroup(group.getId());
+    selectContactById(contact.getId());
+    submitRemoveFromGroup();
+    goToContactList(group.getId());
+    selectGroupAll();
+  }
+
+  private void selectSourceGroup(int id) {
+    new Select(wd.findElement(By.name("group"))).selectByValue(String.valueOf(id));
+  }
+
+  private void submitRemoveFromGroup() {
+    click(By.name("remove"));
+  }
+
 }

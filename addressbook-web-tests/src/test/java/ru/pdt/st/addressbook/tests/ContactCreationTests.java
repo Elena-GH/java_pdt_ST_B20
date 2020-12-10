@@ -39,20 +39,20 @@ public class ContactCreationTests extends TestBase {
   @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) throws Exception {
     app.goTo().homePage();
-    Contacts befor = app.db().contacts();
+    Contacts before = app.db().contacts();
     app.contact().create(contact);
-    assertThat(app.contact().count(), equalTo(befor.size() + 1));
+    assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after =app.db().contacts();
 
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
      Постулируется, что дабавленный элемент имеет максимальный идентификатор
-     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и befor
+     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
      Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded
      При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     */
     assertThat(after, equalTo(
-            befor.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+            before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }
 
   @Test (enabled = false) // Lecture 6.1
@@ -67,7 +67,7 @@ public class ContactCreationTests extends TestBase {
   @Test
   public void testBadContactCreation() throws Exception {
     app.goTo().homePage();
-    Contacts befor = app.db().contacts();
+    Contacts before = app.db().contacts();
     ContactData contact = new ContactData()
             .withFirstName("Contact_First_Name'")
             .withLastName("Contact_Last_Name")
@@ -78,9 +78,9 @@ public class ContactCreationTests extends TestBase {
             .withEmail2("contact_mail_2@gmail.com")
             .withGroup("Group_Name");
     app.contact().create(contact);
-    assertThat(app.contact().count(), equalTo(befor.size()));
+    assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.db().contacts();
-    assertThat(after, equalTo(befor));
+    assertThat(after, equalTo(before));
   }
 
 }
