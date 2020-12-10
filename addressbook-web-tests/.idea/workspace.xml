@@ -83,7 +83,7 @@
       <recent name="C:\GHClone\java_pdt_ST_B20\addressbook-web-tests\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RemoveContactFromGroupTest">
+  <component name="RunManager" selected="TestNG.ContactModificationTests">
     <configuration name="AddContactToGroupTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
@@ -248,10 +248,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ContactModificationTests" />
         <item itemvalue="TestNG.RemoveContactFromGroupTest" />
         <item itemvalue="TestNG.AddContactToGroupTest" />
         <item itemvalue="TestNG.RemoveContactFromGroupTest.testRemoveContactFromGroup" />
-        <item itemvalue="TestNG.ContactModificationTests" />
         <item itemvalue="TestNG.ContactCreationTests" />
       </list>
     </recent_temporary>

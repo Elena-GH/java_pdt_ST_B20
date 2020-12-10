@@ -10,6 +10,9 @@ import ru.pdt.st.addressbook.model.Groups;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class RemoveContactFromGroupTest extends TestBase {
 
   @BeforeMethod
@@ -27,11 +30,7 @@ public class RemoveContactFromGroupTest extends TestBase {
       app.contact().create(new ContactData()
               .withFirstName("Contact_First_Name")
               .withLastName("Contact_Last_Name")
-              .withAddress("123456, г.Москва, Московский пр-т, д.10, стр.1")
-              .withMobilePhone("+7 (123) 123-45-67")
-              .withWorkPhone("+7 (456) 123-45-67")
-              .withEmail("contact_mail@gmail.com")
-              .withEmail2("contact_mail_2@gmail.com")
+              .withAddress("New Contact for Remove from Group")
               .withGroup("Group_Name"));
     }
   }
@@ -48,8 +47,11 @@ public class RemoveContactFromGroupTest extends TestBase {
       }
     }
     GroupData group = groupList.iterator().next();
+    Contacts before = group.getContacts();
     ContactData contact = group.getContacts().iterator().next();
     app.goTo().homePage();
     app.contact().removeFromGroup(group, contact);
+    Contacts after = app.db().group(group.getId()).getContacts();
+    assertThat(after.size(), equalTo(before.size() - 1));
   }
 }
