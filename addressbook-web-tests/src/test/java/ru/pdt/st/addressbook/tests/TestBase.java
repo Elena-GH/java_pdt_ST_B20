@@ -10,11 +10,14 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import ru.pdt.st.addressbook.appmanager.ApplicationManager;
+import ru.pdt.st.addressbook.model.ContactData;
+import ru.pdt.st.addressbook.model.Contacts;
 import ru.pdt.st.addressbook.model.GroupData;
 import ru.pdt.st.addressbook.model.Groups;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -54,6 +57,20 @@ public class TestBase {
       MatcherAssert.assertThat(uiGroups, equalTo(dbGroups.stream()
               .map((g) -> new GroupData().withId(g.getId()).withName(g.getName()))
               .collect(Collectors.toSet())));
+    }
+  }
+
+  public void verifyContactListInUI() {
+    if (Boolean.getBoolean("verifyUI")) {
+      Set<ContactData> dbContacts = app.db().contacts().stream()
+              .map((c) -> new ContactData().withId(c.getId()).withFirstName(c.getFirstName())
+              .withLastName(c.getLastName()).withAddress(c.getAddress()))
+              .collect(Collectors.toSet());
+      Set<ContactData> uiContacts = app.contact().all().stream()
+              .map((c) -> new ContactData().withId(c.getId()).withFirstName(c.getFirstName())
+                      .withLastName(c.getLastName()).withAddress(c.getAddress()))
+              .collect(Collectors.toSet());
+      MatcherAssert.assertThat(uiContacts, equalTo(dbContacts));
     }
   }
 }

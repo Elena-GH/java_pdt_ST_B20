@@ -44,14 +44,18 @@ public class ContactModificationTests extends TestBase {
     app.contact().modify(contact);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.db().contacts();
-
     /*
-     Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
-     Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
-     Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
-     При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
+      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
+      Для реализации fluent-интерфейса (вытягивания в цепочку) сравниваются копии множества after и before
+      Расширение методов для HashSet реализуется через интерфейс ForwardingSet библиотеки Guava +withAdded +withOut
+      При этом сравнение выполняется средствами подключенной библиотеки Hamcrest +assertThat +equalTo
     */
     assertThat(after, equalTo(before.withOut(modifiedContact).withAdded(contact)));
+    /*
+      Контроль списков объектов на UI. Отключаемая проверка
+      Основана на сравнении списков UI по данным БД
+    */
+    verifyContactListInUI();
   }
 
 }

@@ -43,7 +43,6 @@ public class ContactCreationTests extends TestBase {
     app.contact().create(contact);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after =app.db().contacts();
-
     /*
      Сравнение списков групп до и после теста с помощью множеств (неупорядоченные коллекции)
      Постулируется, что дабавленный элемент имеет максимальный идентификатор
@@ -53,6 +52,11 @@ public class ContactCreationTests extends TestBase {
     */
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+    /*
+      Контроль списков объектов на UI. Отключаемая проверка
+      Основана на сравнении списков UI по данным БД
+    */
+    verifyContactListInUI();
   }
 
   @Test (enabled = false) // Lecture 6.1
