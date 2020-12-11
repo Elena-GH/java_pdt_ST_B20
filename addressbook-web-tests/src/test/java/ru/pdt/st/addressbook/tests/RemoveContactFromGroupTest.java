@@ -25,7 +25,12 @@ public class RemoveContactFromGroupTest extends TestBase {
         groupList.add(g);
       }
     }
-    if (groupList.size() == 0 || contacts.size() == 0) {
+    if (groupList.size() == 0 && contacts.size() != 0) {
+      ContactData contact = contacts.iterator().next();
+      GroupData group = groups.iterator().next();
+      app.goTo().homePage();
+      app.contact().addToGroup(contact, group);
+    } else {
       app.goTo().homePage();
       app.contact().create(new ContactData()
               .withFirstName("Contact_First_Name")
@@ -37,7 +42,7 @@ public class RemoveContactFromGroupTest extends TestBase {
 
   @Test
   public void testRemoveContactFromGroup() {
-    Contacts contacts = app.db().contacts();
+    // Contacts contacts = app.db().contacts();
     Groups groups = app.db().groups();
     // Исключаем из списка групп все группы, в которых нет ни одного контакта
     List<GroupData> groupList = new ArrayList<>();
