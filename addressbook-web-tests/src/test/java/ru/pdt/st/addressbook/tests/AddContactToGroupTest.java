@@ -51,10 +51,13 @@ public class AddContactToGroupTest extends TestBase {
       }
     }
     GroupData group = groupList.iterator().next();
-    Contacts before = group.getContacts();
+    Contacts beforeContacts = group.getContacts();
+    Groups beforeGroups = contact.getGroups();
     app.goTo().homePage();
     app.contact().addToGroup(contact, group);
-    Contacts after = app.db().group(group.getId()).getContacts();
-    assertThat(after.size(), equalTo(before.size() + 1));
+    Contacts afterContacts = app.db().group(group.getId()).getContacts();
+    Groups afterGroups = app.db().contact(contact.getId()).getGroups();
+    assertThat(afterContacts.size(), equalTo(beforeContacts.size() + 1));
+    assertThat(afterGroups.size(), equalTo(beforeGroups.size() + 1));
   }
 }

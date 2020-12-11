@@ -30,7 +30,8 @@ public class RemoveContactFromGroupTest extends TestBase {
       GroupData group = groups.iterator().next();
       app.goTo().homePage();
       app.contact().addToGroup(contact, group);
-    } else {
+    }
+    if (contacts.size() == 0) {
       app.goTo().homePage();
       app.contact().create(new ContactData()
               .withFirstName("Contact_First_Name")
@@ -52,11 +53,14 @@ public class RemoveContactFromGroupTest extends TestBase {
       }
     }
     GroupData group = groupList.iterator().next();
-    Contacts before = group.getContacts();
+    Contacts beforeContacts = group.getContacts();
     ContactData contact = group.getContacts().iterator().next();
+    Groups beforeGroups = contact.getGroups();
     app.goTo().homePage();
     app.contact().removeFromGroup(group, contact);
-    Contacts after = app.db().group(group.getId()).getContacts();
-    assertThat(after.size(), equalTo(before.size() - 1));
+    Contacts afterContacts = app.db().group(group.getId()).getContacts();
+    Groups afterGroups = app.db().contact(contact.getId()).getGroups();
+    assertThat(afterContacts.size(), equalTo(beforeContacts.size() - 1));
+    assertThat(afterGroups.size(), equalTo(beforeGroups.size() - 1));
   }
 }
