@@ -22,9 +22,10 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class TestBase {
 
+  Logger logger = LoggerFactory.getLogger(TestBase.class);
+
   protected static final ApplicationManager app
           = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
-  Logger logger = LoggerFactory.getLogger(TestBase.class);
 
   @BeforeSuite(alwaysRun = true)
   public void setUp() throws Exception {
