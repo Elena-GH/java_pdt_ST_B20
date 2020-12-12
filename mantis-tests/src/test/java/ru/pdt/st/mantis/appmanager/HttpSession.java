@@ -28,15 +28,16 @@ public class HttpSession {
 
   public boolean login(String username, String password) throws IOException {
     HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login_page.php");
-    List<NameValuePair> params = new ArrayList<>();
-    params.add(new BasicNameValuePair("username", username));
-    params.add(new BasicNameValuePair("return", "index.php"));
-    post.setEntity(new UrlEncodedFormEntity(params));
+    List<NameValuePair> paramsStepOne = new ArrayList<>();
+    paramsStepOne.add(new BasicNameValuePair("username", username));
+    paramsStepOne.add(new BasicNameValuePair("return", "index.php"));
+    post.setEntity(new UrlEncodedFormEntity(paramsStepOne));
     httpclient.execute(post);
-    params.add(new BasicNameValuePair("password", password));
-    params.add(new BasicNameValuePair("secure_session", "on"));
-    params.add(new BasicNameValuePair("return", "index.php"));
-    post.setEntity(new UrlEncodedFormEntity(params));
+    List<NameValuePair> paramsStepTwo = new ArrayList<>();
+    paramsStepTwo.add(new BasicNameValuePair("password", password));
+    paramsStepTwo.add(new BasicNameValuePair("secure_session", "on"));
+    paramsStepTwo.add(new BasicNameValuePair("return", "index.php"));
+    post.setEntity(new UrlEncodedFormEntity(paramsStepTwo));
     CloseableHttpResponse response = httpclient.execute(post);
     String body = geTestForm(response);
     return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
