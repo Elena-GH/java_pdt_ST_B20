@@ -33,9 +33,9 @@ public class HttpSession {
     paramsStepOne.add(new BasicNameValuePair("return", "index.php"));
     postStepOne.setEntity(new UrlEncodedFormEntity(paramsStepOne));
     httpclient.execute(postStepOne);
-    HttpPost postStepTwo = new HttpPost(app.getProperty("web.baseUrl") + " /login_password_page.php");
+    HttpPost postStepTwo = new HttpPost(app.getProperty("web.baseUrl") + "/login_password_page.php");
     List<NameValuePair> paramsStepTwo = new ArrayList<>();
-    paramsStepOne.add(new BasicNameValuePair("username", username));
+    paramsStepTwo.add(new BasicNameValuePair("username", username));
     paramsStepTwo.add(new BasicNameValuePair("password", password));
     paramsStepTwo.add(new BasicNameValuePair("secure_session", "on"));
     paramsStepTwo.add(new BasicNameValuePair("return", "index.php"));
