@@ -25,7 +25,14 @@ public class AddContactToGroupTest extends TestBase {
         contactList.add(c);
       }
     }
-    if (contactList.size() == 0 || groups.size() == 0) {
+    if (contactList.size() == 0 || contacts.size() == 0) {
+      app.goTo().homePage();
+      app.contact().create(new ContactData()
+              .withFirstName("Contact_First_Name")
+              .withLastName("Contact_Last_Name")
+              .withAddress("New Contact for Add to Group"));
+    }
+    if (groups.size() == 0) {
       app.goTo().groupPage();
       app.group().create(new GroupData().withName("New Group for Add Contact"));
     }

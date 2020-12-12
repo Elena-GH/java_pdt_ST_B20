@@ -77,6 +77,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../mantis-tests/src/test/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -94,7 +95,7 @@
       <recent name="ru.pdt.st.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RemoveContactFromGroupTest">
+  <component name="RunManager" selected="TestNG.AddContactToGroupTest">
     <configuration name="AddContactToGroupTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
@@ -260,8 +261,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.RemoveContactFromGroupTest" />
         <item itemvalue="TestNG.AddContactToGroupTest" />
+        <item itemvalue="TestNG.RemoveContactFromGroupTest" />
         <item itemvalue="TestNG.ContactCreationTests.testContactCreationWithPhoto" />
         <item itemvalue="TestNG.ru.pdt.st.addressbook" />
         <item itemvalue="TestNG.ContactCreationTests.testContactCreation" />
