@@ -27,19 +27,20 @@ public class HttpSession {
   }
 
   public boolean login(String username, String password) throws IOException {
-    HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login_page.php");
+    HttpPost postStepOne = new HttpPost(app.getProperty("web.baseUrl") + "/login_page.php");
     List<NameValuePair> paramsStepOne = new ArrayList<>();
     paramsStepOne.add(new BasicNameValuePair("username", username));
     paramsStepOne.add(new BasicNameValuePair("return", "index.php"));
-    post.setEntity(new UrlEncodedFormEntity(paramsStepOne));
-    httpclient.execute(post);
+    postStepOne.setEntity(new UrlEncodedFormEntity(paramsStepOne));
+    httpclient.execute(postStepOne);
+    HttpPost postStepTwo = new HttpPost(app.getProperty("web.baseUrl") + " /login_password_page.php");
     List<NameValuePair> paramsStepTwo = new ArrayList<>();
     paramsStepOne.add(new BasicNameValuePair("username", username));
     paramsStepTwo.add(new BasicNameValuePair("password", password));
     paramsStepTwo.add(new BasicNameValuePair("secure_session", "on"));
     paramsStepTwo.add(new BasicNameValuePair("return", "index.php"));
-    post.setEntity(new UrlEncodedFormEntity(paramsStepTwo));
-    CloseableHttpResponse response = httpclient.execute(post);
+    postStepTwo.setEntity(new UrlEncodedFormEntity(paramsStepTwo));
+    CloseableHttpResponse response = httpclient.execute(postStepTwo);
     String body = geTestForm(response);
     return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
   }
@@ -56,6 +57,7 @@ public class HttpSession {
     HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "/index.php");
     CloseableHttpResponse response = httpclient.execute(get);
     String body = geTestForm(response);
-    return body.contains(String.format("<span class=\"italic\">%s</span>", username));
+    //return body.contains(String.format("<span class=\"italic\">%s</span>", username));
+    return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
   }
 }
