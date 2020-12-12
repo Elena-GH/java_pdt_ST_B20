@@ -34,6 +34,7 @@ public class HttpSession {
     post.setEntity(new UrlEncodedFormEntity(paramsStepOne));
     httpclient.execute(post);
     List<NameValuePair> paramsStepTwo = new ArrayList<>();
+    paramsStepOne.add(new BasicNameValuePair("username", username));
     paramsStepTwo.add(new BasicNameValuePair("password", password));
     paramsStepTwo.add(new BasicNameValuePair("secure_session", "on"));
     paramsStepTwo.add(new BasicNameValuePair("return", "index.php"));
