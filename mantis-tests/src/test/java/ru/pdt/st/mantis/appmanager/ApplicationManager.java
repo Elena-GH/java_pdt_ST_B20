@@ -15,9 +15,9 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
 
   private final Properties properties;
-  WebDriver wd;
-
+  private WebDriver wd;
   private String browser;
+  private RegistrationHelper registrationHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -29,20 +29,28 @@ public class ApplicationManager {
     // Приоритет для файла target.properties, иначе конфигурация по-умолчанию из local.properties
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+  }
 
-    if (browser.equals(BrowserType.FIREFOX)) {
-      wd = new FirefoxDriver();
-    } else if (browser.equals(BrowserType.CHROME)) {
-      wd = new ChromeDriver();
-    } else if (browser.equals(BrowserType.IE)) {
-      wd = new InternetExplorerDriver();
+  // Шаблон проектирования "Ленивая инициализация"
+  public WebDriver getDriver() {
+    if (wd == null) {
+      if (browser.equals(BrowserType.FIREFOX)) {
+        wd = new FirefoxDriver();
+      } else if (browser.equals(BrowserType.CHROME)) {
+        wd = new ChromeDriver();
+      } else if (browser.equals(BrowserType.IE)) {
+        wd = new InternetExplorerDriver();
+      }
+      wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+      wd.get(properties.getProperty("web.baseUrl"));
     }
-    wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-    wd.get(properties.getProperty("web.baseUrl"));
+    return wd;
   }
 
   public void stop() {
-    wd.quit();
+    if (wd != null) {
+      wd.quit();
+    }
   }
 
   public HttpSession newSession() {
@@ -51,5 +59,15 @@ public class ApplicationManager {
 
   public String getProperty(String key) {
     return properties.getProperty(key);
+  }
+
+  // Шаблон проектирования "Ленивая инициализация"
+  // Нужен только один экземпляр RegistrationHelper
+  public RegistrationHelper registration() {
+    // return new RegistrationHelper(this);
+    if (registrationHelper == null) {
+      registrationHelper = new RegistrationHelper(this);
+    }
+    return registrationHelper;
   }
 }

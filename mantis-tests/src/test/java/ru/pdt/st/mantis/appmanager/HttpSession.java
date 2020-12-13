@@ -12,14 +12,15 @@ import org.apache.http.impl.client.LaxRedirectStrategy;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HttpSession {
 
-  private CloseableHttpClient httpclient;
   private ApplicationManager app;
+  private CloseableHttpClient httpclient;
 
   public HttpSession(ApplicationManager app) {
     this.app = app;
@@ -27,20 +28,14 @@ public class HttpSession {
   }
 
   public boolean login(String username, String password) throws IOException {
-    HttpPost postStepOne = new HttpPost(app.getProperty("web.baseUrl") + "/login_page.php");
-    List<NameValuePair> paramsStepOne = new ArrayList<>();
-    paramsStepOne.add(new BasicNameValuePair("username", username));
-    paramsStepOne.add(new BasicNameValuePair("return", "index.php"));
-    postStepOne.setEntity(new UrlEncodedFormEntity(paramsStepOne));
-    httpclient.execute(postStepOne);
-    HttpPost postStepTwo = new HttpPost(app.getProperty("web.baseUrl") + "/login_password_page.php");
-    List<NameValuePair> paramsStepTwo = new ArrayList<>();
-    paramsStepTwo.add(new BasicNameValuePair("username", username));
-    paramsStepTwo.add(new BasicNameValuePair("password", password));
-    paramsStepTwo.add(new BasicNameValuePair("secure_session", "on"));
-    paramsStepTwo.add(new BasicNameValuePair("return", "index.php"));
-    postStepTwo.setEntity(new UrlEncodedFormEntity(paramsStepTwo));
-    CloseableHttpResponse response = httpclient.execute(postStepTwo);
+    HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login.php");
+    List<NameValuePair> params = new ArrayList<>();
+    params.add(new BasicNameValuePair("username", username));
+    params.add(new BasicNameValuePair("password", password));
+    params.add(new BasicNameValuePair("secure_session", "on"));
+    params.add(new BasicNameValuePair("return", "index.php"));
+    post.setEntity(new UrlEncodedFormEntity(params));
+    CloseableHttpResponse response = httpclient.execute(post);
     String body = geTestForm(response);
     return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
   }
