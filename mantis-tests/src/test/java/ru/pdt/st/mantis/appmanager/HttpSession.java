@@ -22,24 +22,33 @@ public class HttpSession {
   private ApplicationManager app;
   private CloseableHttpClient httpclient;
 
+  // Конструктор класса HttpSession. В нем происходит инициализация HTTP-клиента
   public HttpSession(ApplicationManager app) {
     this.app = app;
     httpclient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build();
   }
 
+  // Вход в систему
   public boolean login(String username, String password) throws IOException {
+    // Адрес запроса
     HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login.php");
+    // Параметры запроса
     List<NameValuePair> params = new ArrayList<>();
     params.add(new BasicNameValuePair("username", username));
     params.add(new BasicNameValuePair("password", password));
     params.add(new BasicNameValuePair("secure_session", "on"));
     params.add(new BasicNameValuePair("return", "index.php"));
+    // Упаковка параметров в запрос
     post.setEntity(new UrlEncodedFormEntity(params));
+    // Отправка запроса
     CloseableHttpResponse response = httpclient.execute(post);
+    // Получение ответа
     String body = geTestForm(response);
+    // Анализ ответа
     return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
   }
 
+  // Получение текста ответа от сервера
   private String geTestForm(CloseableHttpResponse response) throws IOException {
     try {
       return EntityUtils.toString(response.getEntity());
@@ -48,6 +57,7 @@ public class HttpSession {
     }
   }
 
+  // Метод проверяет какой пользователь залогинен в приложении
   public boolean isLoggedInAs(String username) throws IOException {
     HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "/index.php");
     CloseableHttpResponse response = httpclient.execute(get);

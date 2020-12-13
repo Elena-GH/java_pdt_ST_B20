@@ -18,6 +18,7 @@ public class ApplicationManager {
   private WebDriver wd;
   private String browser;
   private RegistrationHelper registrationHelper;
+  private FtpHelper ftp;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -62,12 +63,21 @@ public class ApplicationManager {
   }
 
   // Шаблон проектирования "Ленивая инициализация"
-  // Нужен только один экземпляр RegistrationHelper
+  // Нужен только один экземпляр RegistrationHelper. Если помощник еще не инициализирован,
+  // только в этом случае выполнить инициализацию
   public RegistrationHelper registration() {
     // return new RegistrationHelper(this);
     if (registrationHelper == null) {
       registrationHelper = new RegistrationHelper(this);
     }
     return registrationHelper;
+  }
+
+  // Шаблон проектирования "Ленивая инициализация"
+  public FtpHelper ftp() {
+    if (ftp == null) {
+      ftp = new FtpHelper(this);
+    }
+    return ftp;
   }
 }

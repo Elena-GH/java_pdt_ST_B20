@@ -7,6 +7,7 @@ public class RegistrationHelper {
   private final ApplicationManager app;
   private WebDriver wd;
 
+  // Конструктор класса RegistrationHelper. В нем происходит инициализация браузера
   public RegistrationHelper(ApplicationManager app) {
     this.app = app;
     wd = app.getDriver();
