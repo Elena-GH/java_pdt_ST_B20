@@ -21,9 +21,12 @@ public class RegistrationTests extends TestBase {
 
   @Test
   public void testRegistration() throws IOException, MessagingException {
-    String user = "user1";
+    // Текущее время в миллисекундах от 01.01.1970
+    long now = System.currentTimeMillis();
+    // %s - подстановка по шаблону
+    String user = String.format("user_%s", now);
     String password = "password";
-    String email = "user1@localhost.localdomain";
+    String email = String.format("user_%s@localhost.localdomain", now);
     //Заполнение и отправка формы регистрации
     app.registration().start(user, email);
     // Ожидание почтового сообщения
