@@ -129,34 +129,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactCreationTests.testContactCreationWithPhoto" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <useClassPathOnly />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.pdt.st.addressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.ContactCreationTests" />
-      <option name="METHOD_NAME" value="testContactCreationWithPhoto" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-tests.test" />
       <useClassPathOnly />
@@ -258,7 +230,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="TestNG.ContactCreationTests.testContactCreationWithPhoto" />
       <item itemvalue="TestNG.RemoveContactFromGroupTest" />
       <item itemvalue="TestNG.AddContactToGroupTest" />
       <item itemvalue="TestNG.LoginTests" />
@@ -270,7 +241,6 @@
         <item itemvalue="TestNG.LoginTests" />
         <item itemvalue="TestNG.AddContactToGroupTest" />
         <item itemvalue="TestNG.RemoveContactFromGroupTest" />
-        <item itemvalue="TestNG.ContactCreationTests.testContactCreationWithPhoto" />
       </list>
     </recent_temporary>
   </component>
@@ -309,6 +279,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/ru/pdt/st/addressbook/appmanager/ContactHelper.java</url>
           <line>72</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ru/pdt/st/addressbook/appmanager/ContactHelper.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
