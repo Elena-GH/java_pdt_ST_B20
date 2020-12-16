@@ -14,13 +14,13 @@ import static org.junit.Assert.*;
 
 public class RegistrationTests extends TestBase {
 
-  //@BeforeMethod
+  @BeforeMethod
   public void startMailServer() {
     app.mail().start();
   }
 
   // Внутренний почтовый сервер Wiser
-  @Test(enabled = false)
+  @Test
   public void testRegistrationWiser() throws IOException, MessagingException {
     // Текущее время в миллисекундах от 01.01.1970
     long now = System.currentTimeMillis();
@@ -41,7 +41,7 @@ public class RegistrationTests extends TestBase {
   }
 
   // Внешний почтовый сервер James
-  @Test
+  @Test(enabled = false)
   public void testRegistrationJames() throws MessagingException, IOException {
     // Текущее время в миллисекундах от 01.01.1970
     long now = System.currentTimeMillis();
@@ -76,7 +76,7 @@ public class RegistrationTests extends TestBase {
     return regex.getText(mailMessage.text);
   }
 
-  //@AfterMethod(alwaysRun = true)
+  @AfterMethod(alwaysRun = true)
   public void stopMailServer() {
     app.mail().stop();
   }
