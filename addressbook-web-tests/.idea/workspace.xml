@@ -101,7 +101,7 @@
       <recent name="ru.pdt.st.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ChangePasswordTests">
+  <component name="RunManager" selected="TestNG.LoginTests">
     <configuration name="AddContactToGroupTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
@@ -237,8 +237,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.ChangePasswordTests" />
         <item itemvalue="TestNG.LoginTests" />
+        <item itemvalue="TestNG.ChangePasswordTests" />
         <item itemvalue="TestNG.RegistrationTests" />
         <item itemvalue="TestNG.AddContactToGroupTest" />
       </list>

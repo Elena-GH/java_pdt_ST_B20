@@ -24,4 +24,5 @@ public class RegistrationHelper extends HelperBase {
     type(By.name("password_confirm"), password);
     wd.findElement(By.tagName("button")).click();
   }
+
 }
