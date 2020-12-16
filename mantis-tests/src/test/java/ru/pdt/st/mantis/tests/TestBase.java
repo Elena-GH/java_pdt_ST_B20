@@ -3,9 +3,12 @@ package ru.pdt.st.mantis.tests;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import ru.lanwen.verbalregex.VerbalExpression;
 import ru.pdt.st.mantis.appmanager.ApplicationManager;
+import ru.pdt.st.mantis.model.MailMessage;
 
 import java.io.File;
+import java.util.List;
 
 public class TestBase {
 

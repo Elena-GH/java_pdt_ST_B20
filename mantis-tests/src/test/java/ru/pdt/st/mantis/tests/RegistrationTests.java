@@ -63,6 +63,7 @@ public class RegistrationTests extends TestBase {
     assertTrue(app.newSession().login(user, password));
   }
 
+
   // Среди всех сообщений нужно найти то, которое отправлено на email
   // После нужно извлечь ссылку на подтверждение регистрации
   private String findConfirmationLink(List<MailMessage> mailMessages, String email) {
@@ -73,6 +74,7 @@ public class RegistrationTests extends TestBase {
     // Выполнение регулярного выражения
     return regex.getText(mailMessage.text);
   }
+
 
   @AfterMethod(alwaysRun = true)
   public void stopMailServer() {

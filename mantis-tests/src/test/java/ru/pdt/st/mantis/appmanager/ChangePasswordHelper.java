@@ -18,7 +18,7 @@ public class ChangePasswordHelper extends HelperBase {
     click(By.cssSelector("input[value='Войти']"));
   }
 
-  public void start(int id) {
+  public void start(int id) throws InterruptedException {
     click(By.xpath("//a[contains(@href, 'manage_overview_page.php')]"));
     click(By.xpath("//a[contains(@href, 'manage_user_page.php')]"));
     click(By.cssSelector(String.format("a[href='manage_user_edit_page.php?user_id=%s']", id)));

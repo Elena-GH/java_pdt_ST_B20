@@ -33,7 +33,7 @@ public class MailHelper {
         return wiser.getMessages().stream().map((m) -> toModelMail(m)).collect(Collectors.toList());
       }
       try {
-        // Подождать 1000мс и повторно проверить входущие сообщения
+        // Подождать 1000мс и повторно проверить входящие сообщения
         Thread.sleep(1000);
       } catch (InterruptedException ex) {
         ex.printStackTrace();
