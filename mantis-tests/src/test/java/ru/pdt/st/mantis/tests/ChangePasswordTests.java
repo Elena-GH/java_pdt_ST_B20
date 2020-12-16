@@ -1,5 +1,6 @@
 package ru.pdt.st.mantis.tests;
 
+import org.junit.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,8 +11,6 @@ import ru.pdt.st.mantis.model.UserData;
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.List;
-
-import static org.testng.Assert.assertTrue;
 
 public class ChangePasswordTests extends TestBase {
 
@@ -26,7 +25,7 @@ public class ChangePasswordTests extends TestBase {
     UserData user = app.db().user();
     // Подготовка параметров
     String email = user.getEmail();
-    // String password = "new_password";
+    String password = "new_password";
     // Авторизация в приложении
     app.changePassword().loginUI("administrator", "root");
     // Инициализация смены пароля пользователя
@@ -35,7 +34,10 @@ public class ChangePasswordTests extends TestBase {
     List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
     // Извлечение ссылки на подтверждение регистрации
     String confirmationLink = findConfirmationLink(mailMessages, email);
-    System.out.println(confirmationLink);
+    // Установка и подтверждение пароля
+    app.changePassword().finish(confirmationLink, password);
+    // Проверка, что вход в приложение выполнен успешно
+    Assert.assertTrue(app.newSession().login(user.getUsername(), password));
   }
 
   // Среди всех сообщений нужно найти то, которое отправлено на email
