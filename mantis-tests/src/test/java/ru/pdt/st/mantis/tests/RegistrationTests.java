@@ -14,13 +14,14 @@ import static org.junit.Assert.*;
 
 public class RegistrationTests extends TestBase {
 
-  @BeforeMethod
+  //@BeforeMethod
   public void startMailServer() {
     app.mail().start();
   }
 
-  @Test
-  public void testRegistration() throws IOException, MessagingException {
+  // Внутренний почтовый сервер Wiser
+  @Test(enabled = false)
+  public void testRegistrationWiser() throws IOException, MessagingException {
     // Текущее время в миллисекундах от 01.01.1970
     long now = System.currentTimeMillis();
     // %s - подстановка по шаблону
@@ -39,6 +40,31 @@ public class RegistrationTests extends TestBase {
     assertTrue(app.newSession().login(user, password));
   }
 
+  // Внешний почтовый сервер James
+  @Test
+  public void testRegistrationJames() throws MessagingException, IOException {
+    // Текущее время в миллисекундах от 01.01.1970
+    long now = System.currentTimeMillis();
+    // %s - подстановка по шаблону
+    String user = String.format("user_%s", now);
+    String password = "password";
+    String email = String.format("user_%s@localhost.localdomain", now);
+    // Создание пользователя на внешнем почтовом сервере
+    app.james().createUser(user, password);
+    //Заполнение и отправка формы регистрации
+    app.registration().start(user, email);
+    // Ожидание почтового сообщения
+    List<MailMessage> mailMessages = app.james().waitForMail(user, password, 60000);
+    // Извлечение ссылки на подтверждение регистрации
+    String confirmationLink = findConfirmationLink(mailMessages, email);
+    // Установка и подтверждение пароля
+    app.registration().finish(confirmationLink, password);
+    // Проверка, что вход в приложение выполнен успешно
+    assertTrue(app.newSession().login(user, password));
+  }
+
+
+
   // Среди всех сообщений нужно найти то, которое отправлено на email
   // После нужно извлечь ссылку на подтверждение регистрации
   private String findConfirmationLink(List<MailMessage> mailMessages, String email) {
@@ -50,7 +76,7 @@ public class RegistrationTests extends TestBase {
     return regex.getText(mailMessage.text);
   }
 
-  @AfterMethod(alwaysRun = true)
+  //@AfterMethod(alwaysRun = true)
   public void stopMailServer() {
     app.mail().stop();
   }
