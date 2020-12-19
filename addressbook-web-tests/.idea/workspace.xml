@@ -107,7 +107,7 @@
       <recent name="ru.pdt.st.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTests">
+  <component name="RunManager" selected="Gradle.soap-sample [wsdl2java]">
     <configuration name="soap-sample [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -231,10 +231,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.soap-sample [wsdl2java]" />
+        <item itemvalue="Gradle.soap-sample [dependencies]" />
         <item itemvalue="TestNG.LoginTests" />
         <item itemvalue="TestNG.GroupCreationTests" />
-        <item itemvalue="Gradle.soap-sample [dependencies]" />
-        <item itemvalue="Gradle.soap-sample [wsdl2java]" />
       </list>
     </recent_temporary>
   </component>
