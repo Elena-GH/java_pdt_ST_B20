@@ -15,6 +15,7 @@ dependencies {
     implementation 'ru.lanwen.verbalregex:java-verbal-expressions:1.6'
     implementation 'mysql:mysql-connector-java:8.0.22'
     implementation 'org.hibernate:hibernate-core:5.4.24.Final'
+    implementation 'biz.futureware.mantis:mantis-axis-soap-client:1.2.19'
 }
 
 test {

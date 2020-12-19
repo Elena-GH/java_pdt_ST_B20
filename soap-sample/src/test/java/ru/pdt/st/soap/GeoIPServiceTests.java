@@ -12,7 +12,6 @@ public class GeoIPServiceTests {
   @Test
   public void testMyIPPositive() {
     String geoIP = new GeoIPService().getGeoIPServiceSoap12().getIpLocation("64.18.87.4");
-    System.out.println(geoIP);
     assertTrue(geoIP.contains("CA"));
   }
 

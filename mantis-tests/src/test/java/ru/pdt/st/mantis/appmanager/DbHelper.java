@@ -14,7 +14,7 @@ import java.util.List;
 public class DbHelper {
 
   private final SessionFactory sessionFactory;
-  private HashSet<UserData> delegate ;
+  private HashSet<UserData> delegate;
 
   public DbHelper(ApplicationManager app) {
     // A SessionFactory is set up once for an application!
@@ -27,13 +27,13 @@ public class DbHelper {
   public UserData user() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    List<UserData> resultList = session.createQuery("from UserData where access_level <> 90").list();
-    UserData resultUser = resultList.iterator().next();
+    List<UserData> users = session.createQuery("from UserData where access_level <> 90").list();
+    UserData user = users.iterator().next();
     session.getTransaction().commit();
     session.close();
-    return new UserData().withId(resultUser.getId())
-            .withUsername(resultUser.getUsername())
-            .withEmail(resultUser.getEmail());
+    return new UserData().withId(user.getId())
+            .withUsername(user.getUsername())
+            .withEmail(user.getEmail());
   }
 
 }

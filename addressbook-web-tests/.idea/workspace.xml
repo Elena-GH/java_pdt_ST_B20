@@ -112,28 +112,7 @@
       <recent name="ru.pdt.st.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GeoIPServiceTests">
-    <configuration name="soap-sample [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../soap-sample" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="TestNG.SoapTests">
     <configuration name="soap-sample [wsdl2java]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -155,6 +134,33 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="ChangePasswordTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mantis-tests.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.pdt.st.mantis.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.mantis.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.mantis.tests.ChangePasswordTests" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GeoIPServiceTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="soap-sample.test" />
       <useClassPathOnly />
@@ -167,6 +173,60 @@
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ru.pdt.st.soap" />
       <option name="MAIN_CLASS_NAME" value="ru.pdt.st.soap.GeoIPServiceTests" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mantis-tests.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.pdt.st.mantis.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.mantis.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.mantis.tests.LoginTests" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SoapTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mantis-tests.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.pdt.st.mantis.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.mantis.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.mantis.tests.SoapTests" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
@@ -202,15 +262,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.soap-sample [dependencies]" />
       <item itemvalue="Gradle.soap-sample [wsdl2java]" />
       <item itemvalue="TestNG.GeoIPServiceTests" />
+      <item itemvalue="TestNG.LoginTests" />
+      <item itemvalue="TestNG.SoapTests" />
+      <item itemvalue="TestNG.ChangePasswordTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.SoapTests" />
+        <item itemvalue="TestNG.ChangePasswordTests" />
+        <item itemvalue="TestNG.LoginTests" />
         <item itemvalue="TestNG.GeoIPServiceTests" />
         <item itemvalue="Gradle.soap-sample [wsdl2java]" />
-        <item itemvalue="Gradle.soap-sample [dependencies]" />
       </list>
     </recent_temporary>
   </component>
