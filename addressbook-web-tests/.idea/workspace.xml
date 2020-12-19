@@ -59,7 +59,12 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="addressbook-web-tests" type="f1a62948:ProjectNode" />
+                <item name="soap-sample" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="soap-sample" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -134,7 +139,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/../soap-sample" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--debug" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -224,8 +229,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.soap-sample [wsdl2java]" />
       <item itemvalue="Gradle.soap-sample [dependencies]" />
+      <item itemvalue="Gradle.soap-sample [wsdl2java]" />
       <item itemvalue="TestNG.LoginTests" />
       <item itemvalue="TestNG.GroupCreationTests" />
     </list>
