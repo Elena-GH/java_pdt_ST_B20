@@ -88,7 +88,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../soap-sample/build.gradle" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
@@ -107,7 +107,7 @@
       <recent name="ru.pdt.st.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.soap-sample [wsdl2java]">
+  <component name="RunManager" selected="TestNG.LoginTests">
     <configuration name="soap-sample [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -150,18 +150,18 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChangePasswordTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
+    <configuration name="GroupCreationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
       <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pdt.st.mantis.tests.*" />
+          <option name="PATTERN" value="ru.pdt.st.addressbook.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ru.pdt.st.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.mantis.tests.ChangePasswordTests" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.GroupCreationTests" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
@@ -204,33 +204,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
-      <useClassPathOnly />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.pdt.st.mantis.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ru.pdt.st.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.mantis.tests.RegistrationTests" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG">
       <useClassPathOnly />
       <option name="SUITE_NAME" value="" />
@@ -254,16 +227,14 @@
       <item itemvalue="Gradle.soap-sample [wsdl2java]" />
       <item itemvalue="Gradle.soap-sample [dependencies]" />
       <item itemvalue="TestNG.LoginTests" />
-      <item itemvalue="TestNG.RegistrationTests" />
-      <item itemvalue="TestNG.ChangePasswordTests" />
+      <item itemvalue="TestNG.GroupCreationTests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.soap-sample [wsdl2java]" />
-        <item itemvalue="Gradle.soap-sample [dependencies]" />
         <item itemvalue="TestNG.LoginTests" />
-        <item itemvalue="TestNG.ChangePasswordTests" />
-        <item itemvalue="TestNG.RegistrationTests" />
+        <item itemvalue="TestNG.GroupCreationTests" />
+        <item itemvalue="Gradle.soap-sample [dependencies]" />
+        <item itemvalue="Gradle.soap-sample [wsdl2java]" />
       </list>
     </recent_temporary>
   </component>
