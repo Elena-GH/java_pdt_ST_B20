@@ -315,11 +315,6 @@
           <line>44</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ru/pdt/st/addressbook/tests/TestBase.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

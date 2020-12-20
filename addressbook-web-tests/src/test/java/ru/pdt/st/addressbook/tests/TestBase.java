@@ -74,6 +74,7 @@ public class TestBase {
   }
 
   public boolean isIssueOpen(BigInteger issueId) throws RemoteException, ServiceException, MalformedURLException {
+    // Если статус баг-репорта отличается от Resolved (код 80), возвращаем true
     if (app.soap().issueStatus(issueId) != 80) {
       return true;
     }
@@ -81,6 +82,7 @@ public class TestBase {
   }
 
   public void skipIfNotFixed(BigInteger issueId) throws RemoteException, ServiceException, MalformedURLException {
+    // Если есть баг-репорт в статусе, отличном от Resolved (код 80), тест выполнять не нужно
     if (isIssueOpen(issueId)) {
       throw new SkipException("Ignored because of issue " + issueId);
     }
