@@ -1,19 +1,25 @@
 package ru.pdt.st.addressbook.tests;
 
 import biz.futureware.mantis.rpc.soap.client.IssueData;
+import biz.futureware.mantis.rpc.soap.client.MantisConnectLocator;
+import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.SkipException;
 import org.testng.annotations.*;
 import ru.pdt.st.addressbook.appmanager.ApplicationManager;
 import ru.pdt.st.addressbook.model.ContactData;
 import ru.pdt.st.addressbook.model.GroupData;
 import ru.pdt.st.addressbook.model.Groups;
+import ru.pdt.st.addressbook.model.Issue;
 
 import javax.xml.rpc.ServiceException;
 import java.lang.reflect.Method;
+import java.math.BigInteger;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.List;
@@ -73,21 +79,16 @@ public class TestBase {
     }
   }
 
-  @Test
-  public void issues() throws RemoteException, ServiceException, MalformedURLException {
-    System.out.println(app.soap().getIssues());
-  }
-
-  /*
-  public boolean isIssueOpen(int issueId) {
-
+  public boolean isIssueOpen(int issueId) throws RemoteException, ServiceException, MalformedURLException {
+    if (<Модельный объект>.getStatus() == "new") {
+      return true;
+    }
     return false;
   }
 
-  public void skipIfNotFixed(int issueId) {
+  public void skipIfNotFixed(int issueId) throws RemoteException, ServiceException, MalformedURLException {
     if (isIssueOpen(issueId)) {
       throw new SkipException("Ignored because of issue " + issueId);
     }
   }
-  */
 }

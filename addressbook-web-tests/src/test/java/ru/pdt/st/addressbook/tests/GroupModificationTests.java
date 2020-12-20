@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.GroupData;
 import ru.pdt.st.addressbook.model.Groups;
+import ru.pdt.st.addressbook.model.Issue;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,6 +22,7 @@ public class GroupModificationTests extends TestBase {
 
   @Test
   public void testGroupModification() throws Exception {
+    skipIfNotFixed(app.soap().issue().getId());
     Groups before = app.db().groups();
     // Выбор случайного элемента из множества
     GroupData modifiedGroup = before.iterator().next();

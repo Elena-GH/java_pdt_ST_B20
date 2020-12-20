@@ -24,7 +24,8 @@ public class SoapHelper {
     this.app = app;
   }
 
-  public Set<Issue> getIssues() throws RemoteException, MalformedURLException, ServiceException {
+
+  public Issue issue() throws RemoteException, MalformedURLException, ServiceException {
     // Установка соединения с Mantis SOAP
     MantisConnectPortType mc = new MantisConnectLocator()
             .getMantisConnectPort(new URL("http://localhost/mantisbt-2.24.3/api/soap/mantisconnect.php"));
@@ -33,10 +34,10 @@ public class SoapHelper {
     // Получение списка баг-репортов по проекту addressbook
     IssueData[] issues = mc.mc_project_get_issues("administrator", "root", projectId,
             BigInteger.valueOf(1), BigInteger.valueOf(0));
+    // Получение произвольного баг-репорта и заполнение модельного объекта Issue
     return Arrays.asList(issues).stream().map((i) -> new Issue()
-            .withId(i.getId().intValue()).withStatus(String.valueOf(i.getStatus())))
-            .collect(Collectors.toSet());
+            .withId(i.getId().intValue()).withStatus(String.valueOf(i.getStatus().getName())))
+            .collect(Collectors.toList()).iterator().next();
   }
-
 
 }
