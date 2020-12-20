@@ -58,6 +58,10 @@ public class ApplicationManager {
     return soapHelper;
   }
 
+  public String getProperty(String key) {
+    return properties.getProperty(key);
+  }
+
   public void init() throws IOException {
     // Загрузка конфигурационных параметров из файла .properties
     // Приоритет для файла target.properties, иначе конфигурация по-умолчанию из local.properties
