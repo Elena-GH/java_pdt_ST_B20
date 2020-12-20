@@ -40,7 +40,6 @@ public class SoapHelper {
             .collect(Collectors.toSet());
   }
 
-  //
   public Issue addIssue(Issue issue) throws MalformedURLException, ServiceException, RemoteException {
     // Открытие соединения
     MantisConnectPortType mc = getMantisConnect();
