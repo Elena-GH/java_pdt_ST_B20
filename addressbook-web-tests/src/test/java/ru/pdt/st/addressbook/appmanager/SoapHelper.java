@@ -3,7 +3,6 @@ package ru.pdt.st.addressbook.appmanager;
 import biz.futureware.mantis.rpc.soap.client.IssueData;
 import biz.futureware.mantis.rpc.soap.client.MantisConnectLocator;
 import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
-import org.jetbrains.annotations.NotNull;
 
 import javax.xml.rpc.ServiceException;
 import java.math.BigInteger;
