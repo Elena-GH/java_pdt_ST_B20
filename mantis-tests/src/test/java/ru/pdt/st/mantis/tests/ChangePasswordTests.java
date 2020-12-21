@@ -9,6 +9,7 @@ import ru.pdt.st.mantis.model.MailMessage;
 import ru.pdt.st.mantis.model.UserData;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,7 +21,9 @@ public class ChangePasswordTests extends TestBase {
   }
 
   @Test
-  public void testChangePassword() throws IOException, MessagingException, InterruptedException {
+  public void testChangePassword() throws IOException, MessagingException, InterruptedException, ServiceException {
+    // Проверка на статус баг-репорта Mantis. Если статус отличается от Resolved (код 80), тест выполнять не нужно
+    skipIfNotFixed(app.soap().issueId());
     // Получение информации о пользователе из БД
     UserData user = app.db().user();
     // Подготовка параметров

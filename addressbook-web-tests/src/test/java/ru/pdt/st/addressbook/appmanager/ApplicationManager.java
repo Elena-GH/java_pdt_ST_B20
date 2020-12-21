@@ -23,7 +23,6 @@ public class ApplicationManager {
   private ContactHelper contactHelper;
   private String browser;
   private DbHelper dbHelper;
-  private SoapHelper soapHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -48,18 +47,6 @@ public class ApplicationManager {
 
   public DbHelper db() {
     return dbHelper;
-  }
-
-  // Шаблон проектирования "Ленивая инициализация"
-  public SoapHelper soap() {
-    if (soapHelper == null) {
-      soapHelper = new SoapHelper(this);
-    }
-    return soapHelper;
-  }
-
-  public String getProperty(String key) {
-    return properties.getProperty(key);
   }
 
   public void init() throws IOException {

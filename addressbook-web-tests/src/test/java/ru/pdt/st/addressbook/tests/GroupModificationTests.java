@@ -17,7 +17,6 @@ public class GroupModificationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() throws RemoteException, ServiceException, MalformedURLException {
-    skipIfNotFixed(app.soap().issueId());
     if (app.db().groups().size() == 0) {
       app.goTo().groupPage();
       app.group().create(new GroupData().withName("Group_Name"));

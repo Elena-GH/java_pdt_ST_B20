@@ -1,7 +1,5 @@
 package ru.pdt.st.mantis.tests;
 
-
-import org.junit.Assert;
 import org.testng.annotations.Test;
 import ru.pdt.st.mantis.model.Issue;
 import ru.pdt.st.mantis.model.Project;
