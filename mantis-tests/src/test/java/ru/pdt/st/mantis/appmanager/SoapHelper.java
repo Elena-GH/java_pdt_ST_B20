@@ -35,7 +35,8 @@ public class SoapHelper {
     // Открытие соединения
     MantisConnectPortType mc = getMantisConnect();
     // Получить список проектов, к которым пользователь имеет доступ
-    ProjectData[] projects = mc.mc_projects_get_user_accessible("administrator", "root");
+    ProjectData[] projects = mc.mc_projects_get_user_accessible
+            (app.getProperty("mantis.soap.adminLogin"), app.getProperty("mantis.soap.adminPassword"));
     // Преобразование полученных данных в модельные объекты
     return Arrays.asList(projects).stream().map((p) -> new Project()
             .withId(p.getId().intValue()).withName(p.getName()))
@@ -46,7 +47,8 @@ public class SoapHelper {
     // Открытие соединения
     MantisConnectPortType mc = getMantisConnect();
     // Получение списка категорий для баг-репортов
-    String[] categories = mc.mc_project_get_categories("administrator", "root",
+    String[] categories = mc.mc_project_get_categories
+            (app.getProperty("mantis.soap.adminLogin"), app.getProperty("mantis.soap.adminPassword"),
             BigInteger.valueOf(issue.getProject().getId()));
     // Создание из нашего модельного объекта структуры объекта Mantis SOAP
     IssueData issueData = new IssueData();
@@ -58,7 +60,8 @@ public class SoapHelper {
     // Категория - обязательное поле, список выбора. Выбираем первую попавшуюся из списка categories
     issueData.setCategory(categories[0]);
     // Создание баг-репорта
-    BigInteger issueId = mc.mc_issue_add("administrator", "root", issueData);
+    BigInteger issueId = mc.mc_issue_add
+            (app.getProperty("mantis.soap.adminLogin"), app.getProperty("mantis.soap.adminPassword"), issueData);
     // Обратное преобразование объекта Mantis SOAP в новый модельный объект. Получение объекта
     IssueData createdIssueData = mc.mc_issue_get("administrator", "root", issueId);
     // Обратное преобразование объекта Mantis SOAP в новый модельный объект. Заполнение модели
@@ -72,11 +75,11 @@ public class SoapHelper {
   public BigInteger issueId() throws MalformedURLException, ServiceException, RemoteException {
     // Открытие соединения
     MantisConnectPortType mc = getMantisConnect();
-    // Получение ИД проекта addressbook
+    // Получение ИД проекта mantis
     BigInteger projectId = mc.mc_project_get_id_from_name
             (app.getProperty("mantis.soap.adminLogin"), app.getProperty("mantis.soap.adminPassword"),
-                    "addressbook");
-    // Получение списка баг-репортов по проекту addressbook
+                    "mantis");
+    // Получение списка баг-репортов по проекту mantis
     IssueData[] issues = mc.mc_project_get_issues
             (app.getProperty("mantis.soap.adminLogin"), app.getProperty("mantis.soap.adminPassword"),
                     projectId, BigInteger.valueOf(1), BigInteger.valueOf(0));

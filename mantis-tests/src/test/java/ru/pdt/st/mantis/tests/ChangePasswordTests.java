@@ -22,7 +22,7 @@ public class ChangePasswordTests extends TestBase {
 
   @Test
   public void testChangePassword() throws IOException, MessagingException, InterruptedException, ServiceException {
-    // Проверка на статус баг-репорта Mantis. Если статус отличается от Resolved (код 80), тест выполнять не нужно
+    // Проверка статуса баг-репорта Mantis. Если статус отличается от Resolved (код 80), тест выполнять не нужно
     skipIfNotFixed(app.soap().issueId());
     // Получение информации о пользователе из БД
     UserData user = app.db().user();
