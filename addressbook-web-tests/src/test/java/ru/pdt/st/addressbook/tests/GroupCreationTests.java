@@ -47,7 +47,10 @@ public class GroupCreationTests extends TestBase {
         line = reader.readLine();
       }
       Gson gson = new Gson();
-      List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>() {}.getType());  // List<GroupData>.class
+      // List<GroupData>.class - для обычных классов применимо, а для классов с угловыми скобками "<>",
+      // т.е. которые содержат уточняющий тип, в частности для контейнерных типов, - не применимо,
+      // поэтому нужно использовать обходной путь или "костыль" - new TypeToken<List<GroupData>>() {}.getType()
+      List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>() {}.getType());
       return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
   }

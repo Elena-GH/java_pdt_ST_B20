@@ -35,6 +35,9 @@
     <projectState path="$PROJECT_DIR$/../mantis-tests">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/../rest-sample">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/../sandbox">
       <ProjectState />
     </projectState>
@@ -52,6 +55,9 @@
           <activation />
         </task>
         <task path="$PROJECT_DIR$/../soap-sample">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/../rest-sample">
           <activation />
         </task>
         <projects_view>
@@ -87,8 +93,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../soap-sample/build.gradle" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rest-sample/build.gradle" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
@@ -96,6 +102,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.pdt.st.rest" />
       <recent name="ru.pdt.st.mantis.appmanager" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -109,7 +116,7 @@
       <recent name="ru.pdt.st.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.SoapTests">
+  <component name="RunManager" selected="TestNG.RestTests">
     <configuration name="ChangePasswordTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-tests.test" />
       <useClassPathOnly />
@@ -191,6 +198,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RestTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="rest-sample.test" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.pdt.st.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.rest" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.rest.RestTests" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SoapTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-tests.test" />
       <useClassPathOnly />
@@ -242,9 +276,11 @@
       <item itemvalue="TestNG.LoginTests" />
       <item itemvalue="TestNG.GroupModificationTests" />
       <item itemvalue="TestNG.ChangePasswordTests" />
+      <item itemvalue="TestNG.RestTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.RestTests" />
         <item itemvalue="TestNG.SoapTests" />
         <item itemvalue="TestNG.LoginTests" />
         <item itemvalue="TestNG.ChangePasswordTests" />
@@ -293,6 +329,7 @@
     <watches-manager>
       <configuration name="TestNG">
         <watch expression="session" language="JAVA" />
+        <watch expression="json" />
       </configuration>
     </watches-manager>
   </component>
