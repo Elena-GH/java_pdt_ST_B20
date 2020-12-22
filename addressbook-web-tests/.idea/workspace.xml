@@ -32,6 +32,9 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/../github-sample">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/../mantis-tests">
       <ProjectState />
     </projectState>
@@ -65,6 +68,10 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="github-sample" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="soap-sample" type="f1a62948:ProjectNode" />
               </path>
             </expand>
@@ -93,8 +100,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rest-sample/build.gradle" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../github-sample/build.gradle" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
@@ -117,7 +124,7 @@
       <recent name="ru.pdt.st.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RestTests">
+  <component name="RunManager" selected="TestNG.ChangePasswordTests">
     <configuration name="ChangePasswordTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-tests.test" />
       <useClassPathOnly />
@@ -145,18 +152,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupModificationTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
+    <configuration name="GithubTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="github-sample.test" />
       <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pdt.st.addressbook.tests.*" />
+          <option name="PATTERN" value="ru.pdt.st.github.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ru.pdt.st.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.GroupModificationTests" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.github" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.github.GithubTests" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
@@ -172,18 +179,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
+    <configuration name="RestAssuredTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="rest-sample.test" />
       <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pdt.st.mantis.tests.*" />
+          <option name="PATTERN" value="ru.pdt.st.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ru.pdt.st.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.mantis.tests.LoginTests" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.rest" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.rest.RestAssuredTests" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
@@ -274,18 +281,18 @@
     </configuration>
     <list>
       <item itemvalue="TestNG.SoapTests" />
-      <item itemvalue="TestNG.LoginTests" />
-      <item itemvalue="TestNG.GroupModificationTests" />
-      <item itemvalue="TestNG.ChangePasswordTests" />
       <item itemvalue="TestNG.RestTests" />
+      <item itemvalue="TestNG.RestAssuredTests" />
+      <item itemvalue="TestNG.GithubTests" />
+      <item itemvalue="TestNG.ChangePasswordTests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.RestTests" />
-        <item itemvalue="TestNG.SoapTests" />
-        <item itemvalue="TestNG.LoginTests" />
         <item itemvalue="TestNG.ChangePasswordTests" />
-        <item itemvalue="TestNG.GroupModificationTests" />
+        <item itemvalue="TestNG.GithubTests" />
+        <item itemvalue="TestNG.RestTests" />
+        <item itemvalue="TestNG.RestAssuredTests" />
+        <item itemvalue="TestNG.SoapTests" />
       </list>
     </recent_temporary>
   </component>
