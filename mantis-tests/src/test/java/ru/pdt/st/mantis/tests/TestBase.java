@@ -10,6 +10,7 @@ import ru.pdt.st.mantis.model.MailMessage;
 
 import javax.xml.rpc.ServiceException;
 import java.io.File;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.rmi.RemoteException;
@@ -28,19 +29,34 @@ public class TestBase {
                                 "config_inc.php.bak");
   }
 
-  public boolean isIssueOpen(BigInteger issueId) throws RemoteException, ServiceException, MalformedURLException {
-    // Если статус баг-репорта отличается от Resolved (код 80), возвращаем true
+  public void skipIfNotFixedMantis(int issueId) throws IOException, ServiceException {
+    // Если есть баг-репорт Mantis в статусе, отличном от Resolved (код 80), тест выполнять не нужно
+    if (isIssueOpenMantis(issueId)) {
+      throw new SkipException("Ignored because of issue " + issueId);
+    }
+  }
+
+  public boolean isIssueOpenMantis(int issueId) throws IOException, ServiceException {
+    // Если статус баг-репорта Mantis отличается от Resolved (код 80), возвращаем true
     if (app.soap().issueStatus(issueId) != 80) {
       return true;
     }
     return false;
   }
 
-  public void skipIfNotFixed(BigInteger issueId) throws RemoteException, ServiceException, MalformedURLException {
-    // Если есть баг-репорт в статусе, отличном от Resolved (код 80), тест выполнять не нужно
-    if (isIssueOpen(issueId)) {
+  public void skipIfNotFixedBugify(int issueId) throws IOException, ServiceException {
+    // Если есть баг-репорт Bugify в статусе, отличном от Resolved (код 2), тест выполнять не нужно
+    if (isIssueOpenBugify(issueId)) {
       throw new SkipException("Ignored because of issue " + issueId);
     }
+  }
+
+  public boolean isIssueOpenBugify(int issueId) throws IOException, ServiceException {
+    // Если статус баг-репорта Bugify отличается от Resolved (код 2), возвращаем true
+    if (app.rest().getIssueStatus(issueId) != 2) {
+      return true;
+    }
+    return false;
   }
 
   @AfterSuite(alwaysRun = true)

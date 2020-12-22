@@ -10,6 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -72,7 +73,7 @@ public class SoapHelper {
                                                 .withName(createdIssueData.getProject().getName()));
   }
 
-  public BigInteger issueId() throws MalformedURLException, ServiceException, RemoteException {
+  public int issueId() throws MalformedURLException, ServiceException, RemoteException {
     // Открытие соединения
     MantisConnectPortType mc = getMantisConnect();
     // Получение ИД проекта mantis
@@ -84,15 +85,16 @@ public class SoapHelper {
             (app.getProperty("mantis.soap.adminLogin"), app.getProperty("mantis.soap.adminPassword"),
                     projectId, BigInteger.valueOf(1), BigInteger.valueOf(0));
     // Получение ИД произвольного баг-репорта
-    return Arrays.asList(issues).iterator().next().getId();
+    Random r = new Random();
+    return Arrays.asList(issues).get(r.nextInt(issues.length)).getId().intValue();
   }
 
-  public int issueStatus(BigInteger issueId) throws MalformedURLException, ServiceException, RemoteException {
+  public int issueStatus(int issueId) throws MalformedURLException, ServiceException, RemoteException {
     // Открытие соединения
     MantisConnectPortType mc = getMantisConnect();
     // Получение статуса баг-репорта
     return (mc.mc_issue_get(app.getProperty("mantis.soap.adminLogin"), app.getProperty("mantis.soap.adminPassword"),
-            issueId).getStatus().getId().intValue());
+            BigInteger.valueOf(issueId)).getStatus().getId().intValue());
   }
 
 }

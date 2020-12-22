@@ -6,8 +6,12 @@ public class Issue {
   private String summary;
   private String description;
   private Project project;
+  private int state;
   // служебная характеристика category - будет рассмотрена позже
 
+  public int getStatus() {
+    return state;
+  }
 
   public int getId() {
     return id;

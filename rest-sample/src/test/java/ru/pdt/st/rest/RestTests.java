@@ -46,8 +46,7 @@ public class RestTests {
     // Извлечение по ключу нужной части из JsonElement
     JsonElement issues = parsed.getAsJsonObject().get("issues");
     // Преобразование списка issues во множество элементов типа Issue
-    return new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {
-    }.getType());
+    return new Gson().fromJson(issues, new TypeToken<Set<Issue>>(){}.getType());
   }
 
   private Executor getExecutor() {

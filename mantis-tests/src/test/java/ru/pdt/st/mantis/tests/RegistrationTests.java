@@ -7,6 +7,7 @@ import ru.lanwen.verbalregex.VerbalExpression;
 import ru.pdt.st.mantis.model.MailMessage;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,7 +22,9 @@ public class RegistrationTests extends TestBase {
 
   // Внутренний почтовый сервер Wiser
   @Test
-  public void testRegistrationWiser() throws IOException, MessagingException {
+  public void testRegistrationWiser() throws IOException, MessagingException, ServiceException {
+    // Проверка статуса баг-репорта Bugify. Если статус отличается от Resolved (код 2), тест выполнять не нужно
+    skipIfNotFixedBugify(app.rest().getIssueId());
     // Текущее время в миллисекундах от 01.01.1970
     long now = System.currentTimeMillis();
     // %s - подстановка по шаблону
