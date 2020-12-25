@@ -100,7 +100,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../github-sample/build.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -113,8 +113,8 @@
       <recent name="ru.pdt.st.mantis.appmanager" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\GHClone\java_pdt_ST_B20\mantis-tests\src\test\resources" />
       <recent name="C:\GHClone\java_pdt_ST_B20\addressbook-web-tests\src\test\resources" />
+      <recent name="C:\GHClone\java_pdt_ST_B20\mantis-tests\src\test\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ru.pdt.st.rest" />
