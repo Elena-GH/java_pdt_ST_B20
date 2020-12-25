@@ -19,7 +19,7 @@ public class PointTests {
     Assert.assertEquals(P2.x - P1.x, 2 );
   }
 
-  @Test
+  @Test (enabled = false)
   public void testDdistanceNegative() {
     Point P1 = new Point(1, 2);
     Point P2 = new Point(3, 4);
