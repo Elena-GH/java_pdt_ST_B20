@@ -3,9 +3,9 @@
 <suite name="Suite1" verbose="1" >
     <test name="Groups" >
         <classes>
-            <class name="ru.pdt.st.addressbook.tests.GroupCreationTests"/>
+            <!-- class name="ru.pdt.st.addressbook.tests.GroupCreationTests"/ -->
             <class name="ru.pdt.st.addressbook.tests.GroupModificationTests"/>
-            <class name="ru.pdt.st.addressbook.tests.GroupDeletionTests"/>
+            <!-- class name="ru.pdt.st.addressbook.tests.GroupDeletionTests"/ -->
         </classes>
     </test>
 </suite>

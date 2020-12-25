@@ -5,10 +5,6 @@ import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.GroupData;
 import ru.pdt.st.addressbook.model.Groups;
 
-import javax.xml.rpc.ServiceException;
-import java.net.MalformedURLException;
-import java.rmi.RemoteException;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
@@ -16,7 +12,7 @@ import static org.testng.Assert.assertEquals;
 public class GroupModificationTests extends TestBase {
 
   @BeforeMethod
-  public void ensurePreconditions() throws RemoteException, ServiceException, MalformedURLException {
+  public void ensurePreconditions() {
     if (app.db().groups().size() == 0) {
       app.goTo().groupPage();
       app.group().create(new GroupData().withName("Group_Name"));
