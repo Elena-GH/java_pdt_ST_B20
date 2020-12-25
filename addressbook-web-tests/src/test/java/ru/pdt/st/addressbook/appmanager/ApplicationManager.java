@@ -70,13 +70,14 @@ public class ApplicationManager {
         wd = new ChromeDriver();
       } else if (browser.equals(BrowserType.IE)) {
         wd = new InternetExplorerDriver();
-      } else {
+      }
+    } else {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // Установка браузера. Selenium-сервер умеет определять, какой он драйвер должен использовать
         capabilities.setBrowserName(browser);
         wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
-      }
     }
+
 
     wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
