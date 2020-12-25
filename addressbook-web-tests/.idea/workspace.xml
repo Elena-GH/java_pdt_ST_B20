@@ -124,7 +124,7 @@
       <recent name="ru.pdt.st.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RegistrationTests.testRegistrationWiser">
+  <component name="RunManager" selected="TestNG.PointTests">
     <configuration name="ChangePasswordTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-tests.test" />
       <useClassPathOnly />
@@ -180,18 +180,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GithubTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="github-sample.test" />
+    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mantis-tests.test" />
       <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pdt.st.github.*" />
+          <option name="PATTERN" value="ru.pdt.st.mantis.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ru.pdt.st.github" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.github.GithubTests" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.mantis.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.mantis.tests.LoginTests" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
@@ -207,18 +207,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
+    <configuration name="PointTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
       <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.pdt.st.mantis.tests.*" />
+          <option name="PATTERN" value="ru.pdt.st.sandbox.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ru.pdt.st.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.mantis.tests.LoginTests" />
+      <option name="PACKAGE_NAME" value="ru.pdt.st.sandbox" />
+      <option name="MAIN_CLASS_NAME" value="ru.pdt.st.sandbox.PointTests" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
@@ -282,19 +282,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="TestNG.GithubTests" />
       <item itemvalue="TestNG.ChangePasswordTests" />
       <item itemvalue="TestNG.RegistrationTests.testRegistrationWiser" />
       <item itemvalue="TestNG.ChangePasswordTests.testChangePassword" />
       <item itemvalue="TestNG.LoginTests" />
+      <item itemvalue="TestNG.PointTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.PointTests" />
         <item itemvalue="TestNG.RegistrationTests.testRegistrationWiser" />
         <item itemvalue="TestNG.ChangePasswordTests.testChangePassword" />
         <item itemvalue="TestNG.LoginTests" />
         <item itemvalue="TestNG.ChangePasswordTests" />
-        <item itemvalue="TestNG.GithubTests" />
       </list>
     </recent_temporary>
   </component>
