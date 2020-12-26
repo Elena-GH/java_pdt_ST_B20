@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
 import ru.pdt.st.addressbook.model.Contacts;
 import ru.pdt.st.addressbook.model.GroupData;
+import ru.pdt.st.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,7 +25,8 @@ public class ContactCreationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    int count = app.db().groups().stream().map((g) -> g.getName().equals("Group_Name")).collect(Collectors.toList()).size();
+    int count  = app.db().groups().stream().map((g) -> g.getName())
+            .filter((g) -> g.equals("Group_Name")).collect(Collectors.toList()).size();
     if (count == 0) {
       app.goTo().groupPage();
       app.group().create(new GroupData().withName("Group_Name"));
