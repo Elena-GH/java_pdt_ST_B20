@@ -82,7 +82,7 @@ public class ApplicationManager {
     }
 
 
-    wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
     sessionHelper = new SessionHelper(wd);
     groupHelper = new GroupHelper(wd);
