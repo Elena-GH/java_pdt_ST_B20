@@ -2,10 +2,12 @@ package ru.pdt.st.addressbook.tests;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.pdt.st.addressbook.model.ContactData;
 import ru.pdt.st.addressbook.model.Contacts;
+import ru.pdt.st.addressbook.model.GroupData;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,6 +21,15 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
+
+  @BeforeMethod
+  public void ensurePreconditions() {
+    int count = app.db().groups().stream().map((g) -> g.getName().equals("Group_Name")).collect(Collectors.toList()).size();
+    if (count == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("Group_Name"));
+    }
+  }
 
   @DataProvider
   public Iterator<Object[]> validContactsFromJson() throws IOException {
