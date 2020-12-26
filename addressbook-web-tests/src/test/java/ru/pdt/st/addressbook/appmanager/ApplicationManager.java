@@ -77,7 +77,7 @@ public class ApplicationManager {
         // Установка браузера. Selenium-сервер умеет определять, какой он драйвер должен использовать
         capabilities.setBrowserName(browser);
         // Установка платформы. Если не указано, использовать по-умолчанию win7
-        capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
+        capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "")));
         wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
     }
 

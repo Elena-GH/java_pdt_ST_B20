@@ -170,7 +170,7 @@
       <option name="MAIN_CLASS_NAME" value="ru.pdt.st.addressbook.tests.GroupModificationTests" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
+      <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true -Dbrowser=chrome -Dtarget=remote" />
       <option name="PARAMETERS" value="" />
       <option name="OUTPUT_DIRECTORY" value="" />
       <option name="TEST_SEARCH_SCOPE">
@@ -331,6 +331,21 @@
           <url>file://$PROJECT_DIR$/src/test/java/ru/pdt/st/addressbook/appmanager/ContactHelper.java</url>
           <line>44</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ru/pdt/st/addressbook/appmanager/ApplicationManager.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ru/pdt/st/addressbook/appmanager/ApplicationManager.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ru/pdt/st/addressbook/appmanager/ApplicationManager.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
