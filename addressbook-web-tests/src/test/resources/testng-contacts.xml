@@ -7,6 +7,8 @@
             <class name="ru.pdt.st.addressbook.tests.ContactModificationTests"/>
             <class name="ru.pdt.st.addressbook.tests.ContactDataTests"/>
             <class name="ru.pdt.st.addressbook.tests.ContactDeletionTests"/>
+            <class name="ru.pdt.st.addressbook.tests.AddContactToGroupTest"/>
+            <class name="ru.pdt.st.addressbook.tests.RemoveContactFromGroupTest"/>
         </classes>
     </test>
 </suite>
