@@ -21,6 +21,8 @@ dependencies {
     agent 'org.aspectj:aspectjweaver:1.8.0'
     implementation 'ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4'
     implementation 'org.robotframework:robotframework:3.2.2'
+    implementation 'info.cukes:cucumber-java:1.2.6'
+    implementation 'info.cukes:cucumber-testng:1.2.6'
 }
 
 task testGroups(type: Test) {
@@ -67,7 +69,7 @@ task rf(type: JavaExec) {
     // Основной запускаемый класс
     main = 'org.robotframework.RobotFramework'
     // Набор подключаемых классов
-    classpath = sourceSets.test.runtimeClasspath;
+    classpath = sourceSets.test.runtimeClasspath
     // Каталог для отчетов
     args '--outputdir', 'build/rf-report'
     // Расположение сценария Robot Framework
