@@ -20,9 +20,10 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.4.24.Final'
     agent 'org.aspectj:aspectjweaver:1.8.0'
     implementation 'ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4'
+    implementation 'org.robotframework:robotframework:3.2.2'
 }
 
-task testGroups (type: Test) {
+task testGroups(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
@@ -44,7 +45,7 @@ testGroups.doFirst {
     jvmArgs "-javaagent:${configurations.agent.singleFile}"
 }
 
-task testContacts (type: Test) {
+task testContacts(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-contacts.xml'
     }
@@ -60,6 +61,17 @@ task testContacts (type: Test) {
     if (project.hasProperty('verifyUI')) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
+}
+
+task rf(type: JavaExec) {
+    // Основной запускаемый класс
+    main = 'org.robotframework.RobotFramework'
+    // Набор подключаемых классов
+    classpath = sourceSets.test.runtimeClasspath;
+    // Каталог для отчетов
+    args '--outputdir', 'build/rf-report'
+    // Расположение сценария Robot Framework
+    args 'src/test/resources/rf'
 }
 
 tasks.withType(JavaCompile) {
